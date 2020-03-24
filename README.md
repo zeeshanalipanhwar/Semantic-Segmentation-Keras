@@ -11,3 +11,6 @@ To implement an image degmentation pipeline using CNNs to get sementic understan
 
 # Dataset:
 **Monuseg dataset** (available [here](https://monuseg.grand-challenge.org/Data/)) is downloaded and the ground truth segmentation masks are created. The dataset can also be downloaded from [this](https://drive.google.com/drive/folders/1hnHjxFb52BdhxkcV_N7MdWLdagzXHzmq?usp=sharing) Google Drive link.
+
+# Results:
+None
