@@ -9,5 +9,5 @@ Some example benchmarks for this task are Cityscapes, PASCAL VOC and ADE20K. Mod
 # Problem Statement:
 To implement an image degmentation pipeline using CNNs to get sementic understanding of the images.
 
-#Dataset
+# Dataset:
 **Monuseg dataset** (available [here](https://monuseg.grand-challenge.org/Data/)) is downloaded and the ground truth segmentation masks are created. The dataset can be either obtained from the instructor or can be downloaded from [this](https://drive.google.com/drive/folders/1hnHjxFb52BdhxkcV_N7MdWLdagzXHzmq?usp=sharing) Google Drive link.
