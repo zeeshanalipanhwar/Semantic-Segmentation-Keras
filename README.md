@@ -1,5 +1,5 @@
 # Semantic-Segmentation-Keras
-Different CNNs for Semantic Segmentation using Keras
+Different CNNs for Semantic Segmentation of nuclei in digital histology images using Keras
 
 # Semantic Segmentation:
 "Semantic segmentation, or image segmentation, is the task of clustering parts of an image together which belong to the same object class. It is a form of pixel-level prediction because each pixel in an image is classified according to a category.
@@ -7,7 +7,7 @@ Different CNNs for Semantic Segmentation using Keras
 Some example benchmarks for this task are Cityscapes, PASCAL VOC and ADE20K. Models are usually evaluated with the Mean Intersection-Over-Union (Mean IoU) and Pixel Accuracy metrics." -- [source](https://paperswithcode.com/task/semantic-segmentation)
 
 # Problem Statement:
-To implement an image degmentation pipeline using CNNs to get sementic understanding of the images.
+To implement an image segmentation pipeline using CNNs to get sementic understanding of the digital histology images.
 
 # Dataset:
 **Monuseg dataset** (available [here](https://monuseg.grand-challenge.org/Data/)) is downloaded and the ground truth segmentation masks are created. The dataset can also be downloaded from [this](https://drive.google.com/drive/folders/1hnHjxFb52BdhxkcV_N7MdWLdagzXHzmq?usp=sharing) Google Drive link.
