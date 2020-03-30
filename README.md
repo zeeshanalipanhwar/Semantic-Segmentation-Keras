@@ -1,5 +1,5 @@
 # Semantic-Segmentation-Keras
-Different CNNs for Semantic Segmentation of nuclei in digital histology images using Keras
+I have implemented three different CNNs, namely SegNet, UNet, and DeepLabV3, for Semantic Segmentation of nuclei in digital histology images using Keras.
 
 # Semantic Segmentation:
 "Semantic segmentation, or image segmentation, is the task of clustering parts of an image together which belong to the same object class. It is a form of pixel-level prediction because each pixel in an image is classified according to a category.
