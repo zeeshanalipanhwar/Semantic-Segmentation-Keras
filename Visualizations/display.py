@@ -11,7 +11,7 @@ def display(image, title=None): # Show image
     if title: plt.title(title)
     plt.show()
 
-def display_masked(image, mask): # Show image with its segmentation mask
+def display_masked(image, mask, image_name, mask_name): # Show image with its segmentation mask
     masked_image = image.copy()
     mask_resized = image.copy()
 
