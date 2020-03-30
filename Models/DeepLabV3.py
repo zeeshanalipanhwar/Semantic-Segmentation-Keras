@@ -13,7 +13,7 @@ class DeepLabV3:
         conv11_layer = Conv2D(depth, (1, 1), activation='relu', padding="same")(input_layer)
         conv11_layer = Dropout(dropout)(conv11_layer)
         
-        atrous_conv1 = AtrousConvolution2D(depth, (3, 3), atrous_rate=(06,06), activation='relu', padding="same")(input_layer)
+        atrous_conv1 = AtrousConvolution2D(depth, (3, 3), atrous_rate=(6 ,6 ), activation='relu', padding="same")(input_layer)
         atrous_conv1 = Dropout(dropout)(atrous_conv1)
         atrous_conv2 = AtrousConvolution2D(depth, (3, 3), atrous_rate=(12,12), activation='relu', padding="same")(input_layer)
         atrous_conv2 = Dropout(dropout)(atrous_conv2)
