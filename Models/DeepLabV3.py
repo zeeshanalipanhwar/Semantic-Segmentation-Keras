@@ -28,36 +28,32 @@ class DeepLabV3:
         output_layer = Conv2D(depth, (3, 3), activation='relu', padding="same")(output_layer)
         output_layer = MaxPooling2D(pool_size=(2, 2))(output_layer)
         output_layer = Dropout(dropout)(output_layer)
-        output_layer = Conv2D(depth*2, (3, 3), activation='relu', padding="same")(output_layer)
-        output_layer = Conv2D(depth*2, (3, 3), activation='relu', padding="same")(output_layer)
-        output_layer = MaxPooling2D(pool_size=(2, 2))(output_layer)
-        output_layer = Dropout(dropout)(output_layer)
         
         # Block two that reduces the input shape by 8
-        output_layer = Conv2D(depth*4, (3, 3), activation='relu', padding="same")(output_layer)
-        output_layer = Conv2D(depth*4, (3, 3), activation='relu', padding="same")(output_layer)
+        output_layer = Conv2D(depth*2, (3, 3), activation='relu', padding="same")(output_layer)
+        output_layer = Conv2D(depth*2, (3, 3), activation='relu', padding="same")(output_layer)
         output_layer = MaxPooling2D(pool_size=(2, 2))(output_layer)
         output_layer = Dropout(dropout)(output_layer)
         
         # Block three that reduces the input shape by 16
-        output_layer = Conv2D(depth*8, (3, 3), activation='relu', padding="same")(output_layer)
-        output_layer = Conv2D(depth*8, (3, 3), activation='relu', padding="same")(output_layer)
+        output_layer = Conv2D(depth*4, (3, 3), activation='relu', padding="same")(output_layer)
+        output_layer = Conv2D(depth*4, (3, 3), activation='relu', padding="same")(output_layer)
         output_layer = MaxPooling2D(pool_size=(2, 2))(output_layer)
         output_layer = Dropout(dropout)(output_layer)
         
         # Block four that retains 16 using Atrous Convolution
-        output_layer = AtrousConvolution2D(depth*4, (3, 3), atrous_rate=(2,2), activation='relu', padding="same")(output_layer)
-        output_layer = AtrousConvolution2D(depth*4, (3, 3), atrous_rate=(2,2), activation='relu', padding="same")(output_layer)
+        output_layer = Conv2D(depth*8, (3, 3), activation='relu', padding="same")(output_layer)
+        output_layer = Conv2D(depth*8, (3, 3), activation='relu', padding="same")(output_layer)
         output_layer = MaxPooling2D(pool_size=(2, 2))(output_layer)
         output_layer = Dropout(dropout)(output_layer)
         
         # Block five of atrous spatial pyramid pooling and image max pooling
-        conv11_layer, atrous_conv1, atrous_conv2, atrous_conv3 = self.atrous_spatial_pyramid_pooling(output_layer, depth*2, dropout)
+        conv11_layer, atrous_conv1, atrous_conv2, atrous_conv3 = self.atrous_spatial_pyramid_pooling(output_layer, depth*8, dropout)
         maxpooled_in = MaxPooling2D(pool_size=(32, 32))(input_layer)
 
-        # Block six of concatination and 1x1 conv on the concatenated output
+        # Block six of concatination and then a 1x1 conv on the concatenated output
         concatenated = concatenate([conv11_layer, atrous_conv1, atrous_conv2, atrous_conv3, maxpooled_in])
-        encoded_out = Conv2D(depth, (3, 3), activation='relu', padding="same")(concatenated)
+        encoded_out = Conv2D(depth, (1, 1), activation='relu', padding="same")(concatenated)
 
         return encoded_out
         
