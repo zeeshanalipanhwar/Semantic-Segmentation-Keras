@@ -65,8 +65,7 @@ class DeepLabV3:
         decoded_out = Conv2DTranspose(filters=output_shape[-1], kernel_size=(528, 528), strides=(16, 16))(encoded_out)
         return decoded_out
 
-    def DeepLabV3(self, input_shape):
-        depth = 32
+    def DeepLabV3(self, input_shape, depth):
         input_layer = Input(shape=input_shape)
         encoded_out = self.encoder(input_layer, depth)
         decoded_out = self.decoder(encoded_out, output_shape=input_shape)
