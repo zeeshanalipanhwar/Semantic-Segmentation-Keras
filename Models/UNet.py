@@ -2,7 +2,7 @@ from keras.models import Model
 from keras.layers.normalization import BatchNormalization
 from keras.layers.convolutional import Conv2D, MaxPooling2D, Conv2DTranspose
 from keras.layers.core import Activation, Flatten, Dropout, Dense
-from keras.layers import Input
+from keras.layers import Input, concatenate
 from keras import backend as K
 
 class UNet:
