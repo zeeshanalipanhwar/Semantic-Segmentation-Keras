@@ -1,3 +1,6 @@
+import numpy as np
+import cv2
+
 def load_testing_data(files_path):
     X_test, Y_test = [], []
 
