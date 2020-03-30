@@ -4,9 +4,6 @@ plt.rcParams['figure.figsize'] = (10.0, 8.0) # set default size of plots
 plt.rcParams['image.interpolation'] = 'nearest'
 plt.rcParams['image.cmap'] = 'gray'
 
-def load(image_path): #Load an image from a file path
-    return cv2.cvtColor(cv2.imread(image_path), cv2.COLOR_BGR2RGB)
-
 def display(image, title=None): # Show image
     plt.figure(figsize = (5,5))
     plt.imshow(image)
