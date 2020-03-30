@@ -1,6 +1,6 @@
 from keras.models import Model
 from keras.layers.normalization import BatchNormalization
-from keras.layers.convolutional import Conv2D, MaxPooling2D, UpSampling2D
+from keras.layers.convolutional import Conv2D, MaxPooling2D, AtrousConvolution2D
 from keras.layers.core import Activation, Flatten, Dropout, Dense
 from keras.layers import Input
 from keras import backend as K
@@ -62,7 +62,6 @@ class DeepLabV3:
         return encoded_out
         
     def decoder(self, encoded_out, output_shape):
-        #decoded_out = UpSampling2D(size=(32, 32))(encoded_out)
         decoded_out = Conv2DTranspose(filters=output_shape[-1], kernel_size=(528, 528), strides=(16, 16))(encoded_out)
         return decoded_out
 
