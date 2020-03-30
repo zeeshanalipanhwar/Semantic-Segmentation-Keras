@@ -1,6 +1,9 @@
 import numpy as np
 import cv2
 
+def load(image_path): #Load an image from a file path
+    return cv2.cvtColor(cv2.imread(image_path), cv2.COLOR_BGR2RGB)
+
 def load_testing_data(files_path):
     X_test, Y_test = [], []
 
