@@ -10,7 +10,7 @@ Some example benchmarks for this task are Cityscapes, PASCAL VOC and ADE20K. Mod
 To implement an image segmentation pipeline using CNNs to get sementic understanding of the digital histology images.
 
 # Dataset:
-**Monuseg dataset** (available [here](https://monuseg.grand-challenge.org/Data/)) is downloaded and the ground truth segmentation masks are created. The dataset can also be downloaded from [this](https://drive.google.com/drive/folders/1hnHjxFb52BdhxkcV_N7MdWLdagzXHzmq?usp=sharing) Google Drive link.
+**Monuseg dataset** (available [here](https://monuseg.grand-challenge.org/Data/)) contains multi organ tissue images with the ground truth segmentation masks for nucli. The dataset can also be downloaded from [this](https://drive.google.com/drive/folders/1hnHjxFb52BdhxkcV_N7MdWLdagzXHzmq?usp=sharing) Google Drive link.
 
 # Results:
 None
