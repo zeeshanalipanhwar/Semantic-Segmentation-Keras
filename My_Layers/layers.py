@@ -8,6 +8,7 @@ class MaxPoolingWithIndices(keras.layers.Layer):
         self.pool_size=pool_size
         self.strides=strides
         self.padding=padding
+        return
 
     def call(self, x):
         pool_size=self.pool_size
@@ -18,17 +19,20 @@ class MaxPoolingWithIndices(keras.layers.Layer):
         else: st=[1,strides[0],strides[1],1]
         output1, output2 = tf.nn.max_pool_with_argmax(x,ps,st,self.padding)
         return [output1,output2]
+
     def compute_output_shape(self, input_shape):
         if isinstance(self.pool_size,int):
             output_shape=(input_shape[0],input_shape[1]//self.pool_size,input_shape[2]//self.pool_size,input_shape[3])
         else:
             output_shape=(input_shape[0],input_shape[1]//self.pool_size[0],input_shape[2]//self.pool_size[1],input_shape[3])
-        return [output_shape, output_shape]
+        return [output_shape,output_shape]
+
 
 class UpSamplingWithIndices(Layer):
     def __init__(self, **kwargs):
         super(UpSamplingWithIndices, self).__init__(**kwargs)
         return
+        
     def call(self,x):
         argmax=K.cast(K.flatten(x[1]),'int32')
         max_value=K.flatten(x[0])
