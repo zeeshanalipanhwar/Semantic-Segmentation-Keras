@@ -18,36 +18,36 @@ class SegNet:
         
     def encoder(self, input_layer):
         encoded_out = self.CompositeConv2D(input_layer, 2, self.depth)
-        encoded_out, indices1 = MaxPoolingWithIndices(pool_size=2,strides=2)(encoded_out)
+        encoded_out, indices1 = MaxPooling2DWithIndices(pool_size=2,strides=2)(encoded_out)
 
         encoded_out = self.CompositeConv2D(encoded_out, 2, self.depth*2)
-        encoded_out, indices2 = MaxPoolingWithIndices(pool_size=2,strides=2)(encoded_out)
+        encoded_out, indices2 = MaxPooling2DWithIndices(pool_size=2,strides=2)(encoded_out)
 
         encoded_out = self.CompositeConv2D(encoded_out, 3, self.depth*4)
-        encoded_out, indices3 = MaxPoolingWithIndices(pool_size=2,strides=2)(encoded_out)
+        encoded_out, indices3 = MaxPooling2DWithIndices(pool_size=2,strides=2)(encoded_out)
 
         encoded_out = self.CompositeConv2D(encoded_out, 3, self.depth*4)
-        encoded_out, indices4 = MaxPoolingWithIndices(pool_size=2,strides=2)(encoded_out)
+        encoded_out, indices4 = MaxPooling2DWithIndices(pool_size=2,strides=2)(encoded_out)
 
         encoded_out = self.CompositeConv2D(encoded_out, 3, self.depth*4)
-        encoded_out, indices5 = MaxPoolingWithIndices(pool_size=2,strides=2)(encoded_out)
+        encoded_out, indices5 = MaxPooling2DWithIndices(pool_size=2,strides=2)(encoded_out)
 
         return [encoded_out, indices1, indices2, indices3, indices4, indices5]
 
     def decoder(self, encoded_out, indices1, indices2, indices3, indices4, indices5):
-        decoded_out = UpSamplingWithIndices()([encoded_out, indices5])
+        decoded_out = Unpooling2DWithIndices()([encoded_out, indices5])
         decoded_out = self.CompositeConv2D(decoded_out, 3, self.depth*4)
 
-        decoded_out = UpSamplingWithIndices()([decoded_out, indices5])
+        decoded_out = Unpooling2DWithIndices()([decoded_out, indices5])
         decoded_out = self.CompositeConv2D(decoded_out, 3, self.depth*4)
 
-        decoded_out = UpSamplingWithIndices()([decoded_out, indices5])
+        decoded_out = Unpooling2DWithIndices()([decoded_out, indices5])
         decoded_out = self.CompositeConv2D(decoded_out, 3, self.depth*4)
 
-        decoded_out = UpSamplingWithIndices()([decoded_out, indices5])
+        decoded_out = Unpooling2DWithIndices()([decoded_out, indices5])
         decoded_out = self.CompositeConv2D(decoded_out, 2, self.depth*2)
 
-        decoded_out = UpSamplingWithIndices()([decoded_out, indices5])
+        decoded_out = Unpooling2DWithIndices()([decoded_out, indices5])
         decoded_out = self.CompositeConv2D(decoded_out, 2, self.depth)
         
         return decoded_out
