@@ -2,7 +2,9 @@ from glob import glob
 import numpy as np
 import cv2
 
-def load(image_path, load_as="rgb"): #Load an image from a file path
+from sklearn.model_selection import train_test_split
+
+def load_image(image_path, load_as="rgb"): #Load an image from a file path
     if load_as.lower() = "gray": color_scheme = cv2.COLOR_BGR2GRAY
     elif load_as.lower() = "hls": color_scheme = cv2.COLOR_BGR2HLS
     elif load_as.lower() = "hsv": color_scheme = cv2.COLOR_BGR2HSV
@@ -18,8 +20,8 @@ def load_training_data(files_path, load_as="rgb", resize_as=(1024, 1024)):
 
     for image_path in glob(files_path+'/Training/TissueImages/*'):
         image_name = image_path.split('/')[-1]
-        tissue_image = load(files_path+'/Training/TissueImages/'+image_name, load_as)
-        ground_truth = load(files_path+'/Training/GroundTruth/'+image_name.split('.')[0]+'_bin_mask.png', load_as)
+        tissue_image = load_image(files_path+'/Training/TissueImages/'+image_name, load_as)
+        ground_truth = load_image(files_path+'/Training/GroundTruth/'+image_name.split('.')[0]+'_bin_mask.png', load_as)
         X_train.append(cv2.resize(tissue_image, resize_as))
         Y_train.append(cv2.resize(ground_truth, resize_as))
 
@@ -39,8 +41,8 @@ def load_testing_data(files_path, load_as="rgb", resize_as=(1024, 1024)):
 
     for image_path in glob(files_path+'/Test/TissueImages/*'):
         image_name = image_path.split('/')[-1]
-        tissue_image = load(files_path+'/Test/TissueImages/'+image_name, load_as)
-        ground_truth = load(files_path+'/Test/GroundTruth/'+image_name.split('.')[0]+'_bin_mask.png', load_as)
+        tissue_image = load_image(files_path+'/Test/TissueImages/'+image_name, load_as)
+        ground_truth = load_image(files_path+'/Test/GroundTruth/'+image_name.split('.')[0]+'_bin_mask.png', load_as)
         X_test.append(cv2.resize(tissue_image, resize_as))
         Y_test.append(cv2.resize(ground_truth, resize_as))
 
@@ -54,3 +56,14 @@ def load_testing_data(files_path, load_as="rgb", resize_as=(1024, 1024)):
     Y_test = Y_test.round(0)
 
     return X_test, Y_test
+
+def load_data(files_path, load_as="rgb", resize_as=(1024, 1024), valid_size=0.2)
+    # loading the train data
+    X_train, Y_train = load_training_data(files_path, load_as="rgb", resize_as=(1024, 1024))
+
+    # split the training set to training and validation sets with the ratio 80:20 (by default) or valid_size
+    X_train, X_valid, Y_train, Y_valid = train_test_split(X_train, Y_train, test_size=valid_size, random_state=42)
+
+    X_test, Y_test = load_testing_data(files_path, load_as="rgb", resize_as=(1024, 1024))
+
+    return X_train, X_valid, Y_train, Y_valid, X_test, Y_test
