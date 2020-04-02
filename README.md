@@ -25,10 +25,10 @@ Some example benchmarks for this task are Cityscapes, PASCAL VOC and ADE20K. Mod
 # Performance Measures
 
 ## Accuracy
-It is defined as <img src="https://render.githubusercontent.com/render/math?math=accuracy = \frac{TP+TN}{TP+FP+TN+FN}">.
+It is defined as <img src="https://render.githubusercontent.com/render/math?math=accuracy = \frac{TP\+TN}{TP\+FP\+TN\+FN}">.
 
 ## F1 Score (or Dice Score)
-F1 Score is defined as the harmonic mean of precision and recall as <img src="https://render.githubusercontent.com/render/math?math=F_1=\frac{2}{\frac{1}{precision}+\frac{1}{recall}}$ where $precision=\frac{TP}{TP+FP}$ and $recall=\frac{TP}{TP+FN}">. This is equivalent to Dice score coefficient which is defined as <img src="https://render.githubusercontent.com/render/math?math=DSC = \frac{2\times{TP}}{2\times{TP}+FP+FN}">.
+F1 Score is defined as the harmonic mean of precision and recall as <img src="https://render.githubusercontent.com/render/math?math=F_1=\frac{2}{\frac{1}{precision}+\frac{1}{recall}}$ where $precision=\frac{TP}{TP\+FP}$ and $recall=\frac{TP}{TP\+FN}">. This is equivalent to Dice score coefficient which is defined as <img src="https://render.githubusercontent.com/render/math?math=DSC = \frac{2\times{TP}}{2\times{TP}\+FP\+FN}">.
 
 # Results:
 None
