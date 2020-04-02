@@ -33,19 +33,19 @@ class SegNet:
         return [encoded_out, indices1, indices2, indices3, indices4, indices5]
 
     def decoder(self, encoded_out, indices1, indices2, indices3, indices4, indices5):
-        decoded_out = Unpooling2DWithIndices()([encoded_out, indices5])
+        decoded_out = MaxUnpooling2DWithIndices()([encoded_out, indices5])
         decoded_out = self.CompositeConv2D(decoded_out, 3, self.depth)
 
-        decoded_out = Unpooling2DWithIndices()([decoded_out, indices4])
+        decoded_out = MaxUnpooling2DWithIndices()([decoded_out, indices4])
         decoded_out = self.CompositeConv2D(decoded_out, 3, self.depth)
 
-        decoded_out = Unpooling2DWithIndices()([decoded_out, indices3])
+        decoded_out = MaxUnpooling2DWithIndices()([decoded_out, indices3])
         decoded_out = self.CompositeConv2D(decoded_out, 3, self.depth)
 
-        decoded_out = Unpooling2DWithIndices()([decoded_out, indices2])
+        decoded_out = MaxUnpooling2DWithIndices()([decoded_out, indices2])
         decoded_out = self.CompositeConv2D(decoded_out, 2, self.depth)
 
-        decoded_out = Unpooling2DWithIndices()([decoded_out, indices1])
+        decoded_out = MaxUnpooling2DWithIndices()([decoded_out, indices1])
         decoded_out = self.CompositeConv2D(decoded_out, 2, self.depth)
         
         return decoded_out
@@ -54,6 +54,6 @@ class SegNet:
         input_layer = Input(shape=input_shape)
         encoded_out, indices1, indices2, indices3, indices4, indices5 = self.encoder(input_layer)
         decoded_out = self.decoder(encoded_out, indices1, indices2, indices3, indices4, indices5)
-        decoded_out = Conv2D(1, kernel_size=(1, 1), activation="sigmoid")(decoded_out)
+        decoded_out = Conv2D(1, kernel_size=(3, 3), padding="same", activation="sigmoid")(decoded_out)
         model = Model(input_layer, decoded_out)
         return model
