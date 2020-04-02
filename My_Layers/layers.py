@@ -2,35 +2,33 @@ import tensorflow as tf
 from keras.layers import Layer
 from keras import backend as K
 
-class MaxPoolingWithIndices(keras.layers.Layer):
+class MaxPooling2DWithIndices(Layer):
     def __init__(self, pool_size, strides, padding='SAME', **kwargs):
-        super(MaxPoolingWithIndices, self).__init__(**kwargs)
-        self.pool_size=pool_size
-        self.strides=strides
-        self.padding=padding
+        super(MaxPooling2DWithIndices, self).__init__(**kwargs)
+        self.pool_size = pool_size
+        self.strides = strides
+        self.padding = padding
         return
 
     def call(self, x):
-        pool_size=self.pool_size
-        strides=self.strides
-        if isinstance(pool_size, int): ps=[1,pool_size,pool_size,1]
-        else: ps=[1,pool_size[0],pool_size[1],1]
-        if isinstance(strides,int): st=[1,strides,strides,1]
-        else: st=[1,strides[0],strides[1],1]
-        output1, output2 = tf.nn.max_pool_with_argmax(x,ps,st,self.padding)
-        return [output1,output2]
+        pool_size = self.pool_size
+        strides = self.strides
+        if isinstance(pool_size, int): ps = [1, pool_size, pool_size, 1]
+        else: ps = [1,pool_size[0],pool_size[1],1]
+        if isinstance(strides,int): st = [1, strides, strides, 1]
+        else: st = [1, strides[0], strides[1], 1]
+        mpooled, indices = tf.nn.max_pool_with_argmax(x, ps, st, self.padding)
+        return [mpooled, indices]
 
     def compute_output_shape(self, input_shape):
         if isinstance(self.pool_size,int):
-            output_shape=(input_shape[0],input_shape[1]//self.pool_size,input_shape[2]//self.pool_size,input_shape[3])
-        else:
-            output_shape=(input_shape[0],input_shape[1]//self.pool_size[0],input_shape[2]//self.pool_size[1],input_shape[3])
+            output_shape = (input_shape[0], input_shape[1]//self.pool_size, input_shape[2]//self.pool_size, input_shape[3])
+        else: output_shape = (input_shape[0], input_shape[1]//self.pool_size[0], input_shape[2]//self.pool_size[1], input_shape[3])
         return [output_shape,output_shape]
 
-
-class UpSamplingWithIndices(Layer):
+class MaxUnpooling2DWithIndices(Layer):
     def __init__(self, **kwargs):
-        super(UpSamplingWithIndices, self).__init__(**kwargs)
+        super(Unpooling2DWithIndices, self).__init__(**kwargs)
         return
         
     def call(self,x):
@@ -48,5 +46,6 @@ class UpSamplingWithIndices(Layer):
             indices=tf.stack([indices_0,indices_1,indices_2,indices_3])
             output=tf.scatter_nd(K.transpose(indices),max_value,output_shape)
             return output
+
     def compute_output_shape(self, input_shape):
         return input_shape[0][0],input_shape[0][1]*2,input_shape[0][2]*2,input_shape[0][3]
