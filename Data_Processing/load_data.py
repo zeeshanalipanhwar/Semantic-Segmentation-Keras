@@ -66,4 +66,4 @@ def load_data(files_path, load_as="rgb", resize_as=(1024, 1024), valid_size=0.2)
 
     X_test, Y_test = load_testing_data(files_path, load_as="rgb", resize_as=(1024, 1024))
 
-    return X_train, X_valid, Y_train, Y_valid, X_test, Y_test
+    return X_train, X_valid, X_test, Y_train, Y_valid, Y_test
