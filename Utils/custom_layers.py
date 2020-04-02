@@ -28,7 +28,7 @@ class MaxPooling2DWithIndices(Layer):
 
 class MaxUnpooling2DWithIndices(Layer):
     def __init__(self, **kwargs):
-        super(Unpooling2DWithIndices, self).__init__(**kwargs)
+        super(MaxUnpooling2DWithIndices, self).__init__(**kwargs)
         return
         
     def call(self,x):
