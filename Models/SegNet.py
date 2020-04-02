@@ -3,6 +3,8 @@ from keras.layers.convolutional import Conv2D
 from keras.layers import Input
 from keras.models import Model
 
+from .Utils.custom_layers import MaxPooling2DWithIndices, MaxUnpooling2DWithIndices
+
 class SegNet:
     def __init__(self, depth = 64):
         self.depth = depth
