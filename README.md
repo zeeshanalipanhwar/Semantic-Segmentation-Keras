@@ -26,7 +26,8 @@ I have implemented three different SegNet, UNet, and DeepLabV3 for Semantic Segm
 
 # 3. DeepLabV3
 ## Model Diagram
-![UNet Architecture](https://miro.medium.com/max/1590/1*R7tiLxyeHYHMXTGJIanZiA.png) ![UNet Architecture](https://media.arxiv-vanity.com/render-output/2143434/x1.png)
+![UNet Architecture](https://miro.medium.com/max/1590/1*R7tiLxyeHYHMXTGJIanZiA.png)
+![UNet Architecture](https://media.arxiv-vanity.com/render-output/2143434/x1.png)
 
 # Performance Measures
 
