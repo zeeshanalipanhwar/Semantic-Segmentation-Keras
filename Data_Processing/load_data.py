@@ -16,6 +16,14 @@ def load_image(image_path, load_as="rgb"): #Load an image from a file path
     return cv2.cvtColor(cv2.imread(image_path), color_scheme)
 
 def load_training_data(files_path, load_as="rgb", resize_as=(1024, 1024)):
+    '''
+    Aurguments:
+        files_path: path to the directories that contains the expected Test and Training data directories
+        load_as: ("rgb" by default)
+        resize_as: ((1024, 1024) by default)
+        valid_size: (0.2 by default) it is the ratio of validation data versus train data
+    Returns:
+    '''
     X_train, Y_train = [], []
 
     for image_path in glob(files_path+'/Training/TissueImages/*'):
