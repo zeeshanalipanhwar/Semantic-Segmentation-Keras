@@ -5,13 +5,13 @@ import cv2
 from sklearn.model_selection import train_test_split
 
 def load_image(image_path, load_as="rgb"): #Load an image from a file path
-    if load_as.lower() = "gray": color_scheme = cv2.COLOR_BGR2GRAY
-    elif load_as.lower() = "hls": color_scheme = cv2.COLOR_BGR2HLS
-    elif load_as.lower() = "hsv": color_scheme = cv2.COLOR_BGR2HSV
-    elif load_as.lower() = "lab": color_scheme = cv2.COLOR_BGR2LAB
-    elif load_as.lower() = "luv": color_scheme = cv2.COLOR_BGR2LUV
-    elif load_as.lower() = "xyz": color_scheme = cv2.COLOR_BGR2XYZ
-    elif load_as.lower() = "yuv": color_scheme = cv2.COLOR_BGR2YUV
+    if load_as.lower() == "gray": color_scheme = cv2.COLOR_BGR2GRAY
+    elif load_as.lower() == "hls": color_scheme = cv2.COLOR_BGR2HLS
+    elif load_as.lower() == "hsv": color_scheme = cv2.COLOR_BGR2HSV
+    elif load_as.lower() == "lab": color_scheme = cv2.COLOR_BGR2LAB
+    elif load_as.lower() == "luv": color_scheme = cv2.COLOR_BGR2LUV
+    elif load_as.lower() == "xyz": color_scheme = cv2.COLOR_BGR2XYZ
+    elif load_as.lower() == "yuv": color_scheme = cv2.COLOR_BGR2YUV
     else: color_scheme = cv2.COLOR_BGR2RGB
     return cv2.cvtColor(cv2.imread(image_path), color_scheme)
 
@@ -57,7 +57,7 @@ def load_testing_data(files_path, load_as="rgb", resize_as=(1024, 1024)):
 
     return X_test, Y_test
 
-def load_data(files_path, load_as="rgb", resize_as=(1024, 1024), validation_size=0.2)
+def load_data(files_path, load_as="rgb", resize_as=(1024, 1024), validation_size=0.2):
     '''
     Aurguments:
         files_path: path to the directories that contains the expected Test and Training data directories
