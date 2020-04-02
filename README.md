@@ -11,7 +11,9 @@ I have implemented three different SegNet, UNet, and DeepLabV3 for Semantic Segm
 
 # Project Structure
 .
+
 ├── dir_name/
+
 └── main.py
 
 # 1. SegNet
@@ -20,10 +22,11 @@ I have implemented three different SegNet, UNet, and DeepLabV3 for Semantic Segm
 
 # 2. UNet
 ## Model Diagram:
-
+![UNet Architecture](https://vasanashwin.github.io/retrospect/images/unet.png)
 
 # 3. DeepLabV3
 ## Model Diagram
+![UNet Architecture](https://miro.medium.com/max/1590/1*R7tiLxyeHYHMXTGJIanZiA.png) ![UNet Architecture](https://media.arxiv-vanity.com/render-output/2143434/x1.png)
 
 # Performance Measures
 
@@ -42,4 +45,5 @@ None
 # Replication Instructions
 - how to setup environment
 - how to train the models using my code to replicate the results
+
 None
