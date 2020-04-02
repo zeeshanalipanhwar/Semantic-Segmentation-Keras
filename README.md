@@ -19,6 +19,10 @@ I have implemented three different SegNet, UNet, and DeepLabV3 for Semantic Segm
 # 1. SegNet
 ## Model Diagram
 ![SegNet Architecture](https://www.researchgate.net/profile/Vijay_Badrinarayanan/publication/283471087/figure/fig1/AS:391733042008065@1470407843299/An-illustration-of-the-SegNet-architecture-There-are-no-fully-connected-layers-and-hence.png)
+## Model Summary
+> Total params: 932,225
+> Trainable params: 928,897
+> Non-trainable params: 3,328
 
 # 2. UNet
 ## Model Diagram:
