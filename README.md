@@ -64,6 +64,9 @@ None
     %tensorflow_version 1.x
     %matplotlib inline
 
+    # create the model
+    model = SegNet.SegNet(depth=SegNet_Configs.DEPTH).SegNet(input_shape=(X_train[0].shape))
+    
     # load the pretrained model weights for future use or deployment
     model.load_weights("drive/My Drive/segnet_basic_71_f1.model")
 
