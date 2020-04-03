@@ -52,14 +52,19 @@ None
 None
 
 # Replication Instructions
-- how to setup environment
-- how to train the models using my code to replicate the results
+Follow the colab notebooks for training-and-testing in the Colab Notebooks directory for respective models.
 
 # Load Pretrained Models
+Either follow the colab notebooks for predictions using the pretrained models in the Colab Notebooks directory for respective models, or follow the following script using your console.
+
 '''
 
     !git clone https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras
     !mv Semantic-Segmentation-Keras Semantic_Segmentation_Keras
+
+'''
+
+'''
 
     %tensorflow_version 1.x
     %matplotlib inline
@@ -70,10 +75,15 @@ None
     # load the pretrained model weights for future use or deployment
     model.load_weights("drive/My Drive/segnet_basic_71_f1.model")
 
+    # load a sample image
+    image_path = None
+    sample_image = data_loading.load_image(image_path)
+
     # make prediction for a sample on the network
     prediction = model.predict(sample_image)
     prediction = prediction.round(0)
-
+    
+    # display the sample image along with its predicted mask
     display.display_masked(sample_image, prediction, "Tissue Image", "Predicted Mask")
 
 '''
