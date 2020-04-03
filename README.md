@@ -7,6 +7,8 @@ I have implemented three different SegNet, UNet, and DeepLabV3 for Semantic Segm
 # Dataset
 **Monuseg dataset** (available [here](https://monuseg.grand-challenge.org/Data/)) contains multi organ tissue images with the ground truth segmentation masks for nucli. The dataset can also be downloaded from [this](https://drive.google.com/drive/folders/1hnHjxFb52BdhxkcV_N7MdWLdagzXHzmq?usp=sharing) Google Drive link.
 
+![Train0](https://drive.google.com/file/d/1V7HI08hmlvF56CUyv9LK5wvg2n38pkB-/view?usp=sharing)
+
 # Requirements
 - python version 3.x
 - tensorflow version 1.x
