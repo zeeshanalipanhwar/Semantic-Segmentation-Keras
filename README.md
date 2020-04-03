@@ -57,12 +57,12 @@ Follow the colab notebooks for training-and-testing in the Colab Notebooks direc
 # Load Pretrained Models
 Either follow the colab notebooks for predictions using the pretrained models in the Colab Notebooks directory for respective models, or follow the following script using your console.
 
-##1. Clone this repository to your current directory
+## 1. Clone this repository to your current directory
 
     !git clone https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras
     !mv Semantic-Segmentation-Keras Semantic_Segmentation_Keras
 
-##2. Create a model
+## 2. Create a model
 
     from Semantic_Segmentation_Keras.Models import SegNet
     from Semantic_Segmentation_Keras.Configs import SegNet_Configs
@@ -77,7 +77,7 @@ Either follow the colab notebooks for predictions using the pretrained models in
                                                                                        DeepLabV3_Configs.RESHAPE[1], 3))
     model.summary()
 
-##3. Load the pretrained model weights
+## 3. Load the pretrained model weights
 
     model.load_weights("drive/My Drive/segnet_basic_72_f1.model")
 
@@ -85,7 +85,7 @@ Either follow the colab notebooks for predictions using the pretrained models in
     image_path = None
     sample_image = data_loading.load_image(image_path)
 
-##4. Make prediction for a sample on the network
+## 4. Make prediction for a sample on the network
 
     from Semantic_Segmentation_Keras.Utils import display, load_data
     import numpy as np
