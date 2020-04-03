@@ -5,8 +5,8 @@ plt.rcParams['figure.figsize'] = (10.0, 8.0) # set default size of plots
 plt.rcParams['image.interpolation'] = 'nearest'
 plt.rcParams['image.cmap'] = 'gray'
 
-def display(image, title=None): # Show image
-    plt.figure(figsize = (10, 10))
+def display_image(image, title=None, figsize=(10, 10)): # Show image
+    plt.figure(figsize = figsize)
     plt.imshow(image)
     plt.axis('off')
     if title: plt.title(title)
