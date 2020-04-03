@@ -55,4 +55,20 @@ None
 - how to setup environment
 - how to train the models using my code to replicate the results
 
-None
+# Load Pretrained Models
+'''
+    !git clone https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras
+    !mv Semantic-Segmentation-Keras Semantic_Segmentation_Keras
+
+    %tensorflow_version 1.x
+    %matplotlib inline
+
+    # load the pretrained model weights for future use or deployment
+    model.load_weights("drive/My Drive/segnet_basic_71_f1.model")
+
+    # make prediction for a sample on the network
+    prediction = model.predict(sample_image)
+    prediction = prediction.round(0)
+
+    display.display_masked(sample_image, prediction, "Tissue Image", "Predicted Mask")
+'''
