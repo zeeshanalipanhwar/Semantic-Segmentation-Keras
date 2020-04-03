@@ -12,11 +12,21 @@ I have implemented three different SegNet, UNet, and DeepLabV3 for Semantic Segm
 - tensorflow version 1.x
 
 # Project Structure
-.
 
-├── dir_name/
+    .
+    ├── Colab Notebooks
+    ├── Configs
+    ├── Models
+        ├── DeepLabV3.py
+        ├── SegNet.py
+        ├── SegNet_Summary.txt
+        ├── segnet_basic.model
+        └── UNet.py
+    ├── Training Plots
+    ├── Utils
+    ├── README.md
+    └── train.py
 
-└── main.py
 
 # 1. SegNet
 ## Model Diagram
