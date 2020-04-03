@@ -56,7 +56,7 @@ def plot_train_valid_loss(H, EPOCHS, save=False, save_to=None, model_name=None):
     plt.xlabel("Epoch")
     plt.ylabel("Loss")
     plt.legend()
-    if save: plt.savefig("{}{}_basic_loss_plot.png".format(save_to, model_name))
+    if save: plt.savefig("{}{}_loss_plot.png".format(save_to, model_name))
     plt.show()
     return
 
@@ -71,7 +71,7 @@ def plot_train_valid_accuracy(H, EPOCHS, save=False, save_to=None, model_name=No
     plt.xlabel("Epoch")
     plt.ylabel("Accuracy")
     plt.legend()
-    if save: plt.savefig("{}{}_basic_accuracy_plot.png".format(save_to, model_name))
+    if save: plt.savefig("{}{}_accuracy_plot.png".format(save_to, model_name))
     plt.show()
     return
 
@@ -86,7 +86,7 @@ def plot_train_valid_f1_score(H, EPOCHS, save=False, save_to=None, model_name=No
     plt.xlabel("Epoch")
     plt.ylabel("F1 Score")
     plt.legend()
-    if save: plt.savefig("{}{}_basic_f1_score_plot.png".format(save_to, model_name))
+    if save: plt.savefig("{}{}_f1_score_plot.png".format(save_to, model_name))
     plt.show()
     return
     
