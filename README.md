@@ -57,6 +57,7 @@ None
 
 # Load Pretrained Models
 '''
+
     !git clone https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras
     !mv Semantic-Segmentation-Keras Semantic_Segmentation_Keras
 
@@ -71,4 +72,5 @@ None
     prediction = prediction.round(0)
 
     display.display_masked(sample_image, prediction, "Tissue Image", "Predicted Mask")
+
 '''
