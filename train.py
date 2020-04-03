@@ -1,7 +1,7 @@
 from Semantic_Segmentation_Keras.Configs import SegNet_Configs
 from Semantic_Segmentation_Keras.Utils import custom_matrics
 
-def train_model(model, save=False, save_as=None):
+def train_model(model, X_train, Y_train, validation_data, save=False, save_as=None):
     # compile the model
     model.compile(loss="binary_crossentropy", optimizer=SegNet_Configs.OPTIMIZER,
                   metrics=["accuracy", custom_matrics.f1_score])
