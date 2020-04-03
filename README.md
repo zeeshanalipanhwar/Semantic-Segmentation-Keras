@@ -7,7 +7,7 @@ I have implemented three different SegNet, UNet, and DeepLabV3 for Semantic Segm
 # Dataset
 **Monuseg dataset** (available [here](https://monuseg.grand-challenge.org/Data/)) contains multi organ tissue images with the ground truth segmentation masks for nucli. The dataset can also be downloaded from [this](https://drive.google.com/drive/folders/1hnHjxFb52BdhxkcV_N7MdWLdagzXHzmq?usp=sharing) Google Drive link.
 
-![Train0](https://drive.google.com/file/d/1V7HI08hmlvF56CUyv9LK5wvg2n38pkB-/view?usp=sharing)
+![Train0](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/Images/Train0.JPG)
 
 # Requirements
 - python version 3.x
@@ -65,7 +65,12 @@ F1 Score is defined as the harmonic mean of precision and recall as <img src="ht
 | DeepLabV3 | Content Cell | Content Cell | Content Cell | Content Cell | Content Cell |
 
 # Qualitative Results
-None
+## 1. SegNet
+![SegNet](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/Images/SegNet_Qualitative_Results.JPG)
+
+## 2. UNet
+
+## 3. DeepLabV3
 
 # Replication Instructions
 Follow the colab notebooks for training-and-testing in the Colab Notebooks directory for respective models.
