@@ -57,33 +57,50 @@ Follow the colab notebooks for training-and-testing in the Colab Notebooks direc
 # Load Pretrained Models
 Either follow the colab notebooks for predictions using the pretrained models in the Colab Notebooks directory for respective models, or follow the following script using your console.
 
-'''
+##1. Clone this repository to your current directory
 
     !git clone https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras
     !mv Semantic-Segmentation-Keras Semantic_Segmentation_Keras
 
-'''
-
-'''
+##2. Create a model
 
     %tensorflow_version 1.x
     %matplotlib inline
 
+    from Semantic_Segmentation_Keras.Models import SegNet
+    from Semantic_Segmentation_Keras.Configs import SegNet_Configs
+
     # create the model
-    model = SegNet.SegNet(depth=SegNet_Configs.DEPTH).SegNet(input_shape=(X_train[0].shape))
-    
-    # load the pretrained model weights for future use or deployment
-    model.load_weights("drive/My Drive/segnet_basic_71_f1.model")
+    model = SegNet.SegNet(depth=SegNet_Configs.DEPTH).SegNet(input_shape=(SegNet_Configs.RESHAPE[0], SegNet_Configs.RESHAPE[1], 3))
+    # following two models are NOT IMPLEMENTED YET
+    #model = UNet.SegNet(depth=UNet_Configs.DEPTH).UNet(input_shape=(UNet_Configs.RESHAPE[0], UNet_Configs.RESHAPE[1], 3))
+    #model = DeepLabV3.DeepLabV3(depth=DeepLabV3_Configs.DEPTH).DeepLabV3(input_shape=(DeepLabV3_Configs.RESHAPE[0], DeepLabV3_Configs.RESHAPE[1], 3))
+    model.summary()
+
+##3. Load the pretrained model weights
+
+    model.load_weights("drive/My Drive/segnet_basic_72_f1.model")
 
     # load a sample image
     image_path = None
     sample_image = data_loading.load_image(image_path)
 
+##4. Make prediction for a sample on the network
+
+    from Semantic_Segmentation_Keras.Utils import display, load_data
+    import numpy as np
+    import cv2
+
+    # load a sample image
+    image_path = "drive/My Drive/sample_tissue_image.tif"
+    sample_image = cv2.cvtColor(cv2.imread(image_path), cv2.COLOR_BGR2RGB)
+    sample_image = cv2.resize(sample_image, SegNet_Configs.RESHAPE)
+    sample_image = np.array(sample_image, dtype="float") / 255.0
+    sample_image = np.expand_dims(sample_image, axis=0)
+
     # make prediction for a sample on the network
     prediction = model.predict(sample_image)
     prediction = prediction.round(0)
-    
-    # display the sample image along with its predicted mask
-    display.display_masked(sample_image, prediction, "Tissue Image", "Predicted Mask")
 
-'''
+    # display the sample image along with its predicted mask
+    display.display_masked(sample_image[0], prediction[0], "Tissue Image", "Predicted Mask")
