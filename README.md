@@ -64,17 +64,17 @@ Either follow the colab notebooks for predictions using the pretrained models in
 
 ##2. Create a model
 
-    %tensorflow_version 1.x
-    %matplotlib inline
-
     from Semantic_Segmentation_Keras.Models import SegNet
     from Semantic_Segmentation_Keras.Configs import SegNet_Configs
 
     # create the model
-    model = SegNet.SegNet(depth=SegNet_Configs.DEPTH).SegNet(input_shape=(SegNet_Configs.RESHAPE[0], SegNet_Configs.RESHAPE[1], 3))
+    model = SegNet.SegNet(depth=SegNet_Configs.DEPTH).SegNet(input_shape=(SegNet_Configs.RESHAPE[0],
+                                                                          SegNet_Configs.RESHAPE[1], 3))
     # following two models are NOT IMPLEMENTED YET
-    #model = UNet.SegNet(depth=UNet_Configs.DEPTH).UNet(input_shape=(UNet_Configs.RESHAPE[0], UNet_Configs.RESHAPE[1], 3))
-    #model = DeepLabV3.DeepLabV3(depth=DeepLabV3_Configs.DEPTH).DeepLabV3(input_shape=(DeepLabV3_Configs.RESHAPE[0], DeepLabV3_Configs.RESHAPE[1], 3))
+    #model = UNet.SegNet(depth=UNet_Configs.DEPTH).UNet(input_shape=(UNet_Configs.RESHAPE[0],
+                                                                     UNet_Configs.RESHAPE[1], 3))
+    #model = DeepLabV3.DeepLabV3(depth=DeepLabV3_Configs.DEPTH).DeepLabV3(input_shape=(DeepLabV3_Configs.RESHAPE[0],
+                                                                                       DeepLabV3_Configs.RESHAPE[1], 3))
     model.summary()
 
 ##3. Load the pretrained model weights
