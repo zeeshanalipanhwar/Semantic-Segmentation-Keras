@@ -27,8 +27,7 @@ def train_model_on_augmented_data(model, train_data, validation_data, save=False
                   metrics=["accuracy", custom_matrics.f1_score])
 
     # train the network using augmented data
-    H = model.fit_generator(train_data, validation_data=validation_data,
-                  batch_size=SegNet_Configs.BATCHSIZE, epochs=SegNet_Configs.EPOCHS)
+    H = model.fit_generator(train_data, validation_data=validation_data, epochs=SegNet_Configs.EPOCHS)
 
     if save: # save the model for future use or deployment
         model.save("{}{}.model".format(save_to, save_as))
