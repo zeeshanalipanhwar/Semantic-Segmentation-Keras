@@ -17,7 +17,7 @@ def train_model(model, X_train, Y_train, validation_data, optimizer, batch_size,
 
     return H # training and validation history
 
-def train_model_on_augmented_data(model, train_data, validation_data, , optimizer, batch_size, epochs,
+def train_model_on_augmented_data(model, train_data, validation_data, optimizer, batch_size, epochs,
                                   save=False, save_to=None, save_as=None):
     if save:
         if not save_to or not save_as:
