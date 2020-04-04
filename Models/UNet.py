@@ -51,15 +51,15 @@ class UNet:
     def UNet(self, input_shape):
         input_layer = Input(shape=input_shape)
 
-        block1, block2, block3, block4 = self.encoder(input_layer, depth)
+        block1, block2, block3, block4 = self.encoder(input_layer, self.depth)
 
         block5 = MaxPooling2D(pool_size=(2, 2))(block4)
-        block5 = Conv2D(depth*16, (3, 3), activation='relu', padding="same")(block5)
-        block5 = Conv2D(depth*16, (3, 3), activation='relu', padding="same")(block5)
+        block5 = Conv2D(self.depth*16, (3, 3), activation='relu', padding="same")(block5)
+        block5 = Conv2D(self.depth*16, (3, 3), activation='relu', padding="same")(block5)
 
-        decoded = self.decoder(block1, block2, block3, block4, block5, depth*8)
+        decoded = self.decoder(block1, block2, block3, block4, block5, self.depth*8)
 
-        upconvolved = Conv2DTranspose(depth, (3, 3), strides = (2, 2), padding = 'same')(decoded)
+        upconvolved = Conv2DTranspose(self.depth, (3, 3), strides = (2, 2), padding = 'same')(decoded)
 
         output_layer = Conv2D(1, (1, 1), activation='sigmoid', padding="same")(upconvolved)
 
