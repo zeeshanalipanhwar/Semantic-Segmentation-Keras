@@ -61,7 +61,7 @@ F1 Score is defined as the harmonic mean of precision and recall as <img src="ht
 | Model | Loss  | Accuracy | Precision | Recall | F1 Score (Dice Score) |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 | SegNet | 0.2753 | 0.8856 | 0.69 | 0.77 | 0.7285 |
-| UNet | Content Cell | Content Cell | Content Cell | Content Cell | Content Cell |
+| UNet | 0.2066 | 0.9092 | 0.74 | 0.83 | 0.7782 |
 | DeepLabV3 | Content Cell | Content Cell | Content Cell | Content Cell | Content Cell |
 
 # Qualitative Results
@@ -69,6 +69,7 @@ F1 Score is defined as the harmonic mean of precision and recall as <img src="ht
 ![SegNet](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/Images/SegNet_Qualitative_Results.JPG)
 
 ## 2. UNet
+![UNet](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/Images/UNet_Qualitative_Results.JPG)
 
 ## 3. DeepLabV3
 
