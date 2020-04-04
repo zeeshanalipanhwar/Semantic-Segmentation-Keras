@@ -76,7 +76,7 @@ F1 Score is defined as the harmonic mean of precision and recall as <img src="ht
 Follow the colab notebooks for training-and-testing in the Colab Notebooks directory for respective models.
 
 # Load Pretrained Models
-Either follow the colab notebooks for predictions using the pretrained models in the Colab Notebooks directory for respective models, or follow the following script using your console.
+Either follow the colab notebooks for predictions using the pretrained models in the Colab Notebooks directory for respective models, or follow the following steps using your console.
 
 ## 1. Clone this repository to your current directory
 
