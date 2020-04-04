@@ -44,8 +44,8 @@ Go to Model directory to view the model summary from the respective text file.
 
 # 3. DeepLabV3
 ## Model Diagram
-![UNet Architecture](https://miro.medium.com/max/1590/1*R7tiLxyeHYHMXTGJIanZiA.png)
-![UNet Architecture](https://media.arxiv-vanity.com/render-output/2143434/x1.png)
+![DeepLabV3 Architecture](https://miro.medium.com/max/1590/1*R7tiLxyeHYHMXTGJIanZiA.png)
+![DeepLabV3 Architecture](https://media.arxiv-vanity.com/render-output/2143434/x1.png)
 ## Model Summary
 Go to Model directory to view the model summary from the respective text file.
 
