@@ -99,6 +99,27 @@ def load_testing_data(files_path, load_as="rgb", sub_images_size=(256, 256)):
 
     return X_test, Y_test
 
+def load_testing_data_as_it_is(files_path, load_as="rgb"):
+    X_test, Y_test = [], []
+
+    for image_path in glob(files_path+'/Test/TissueImages/*'):
+        image_name = image_path.split('/')[-1]
+        tissue_image = load_image(files_path+'/Test/TissueImages/'+image_name, load_as)
+        ground_truth = load_image(files_path+'/Test/GroundTruth/'+image_name.split('.')[0]+'_bin_mask.png', load_as)
+        X_test.append(tissue_image)
+        Y_test.append(ground_truth)
+
+    X_test = np.array(X_test, dtype="float") / 255.0
+    Y_test = np.array(Y_test, dtype="float") / 255.0
+
+    Y_test = Y_test[:, :, :, 0]
+    Y_test = Y_test.reshape((Y_test.shape[0], Y_test.shape[1], Y_test.shape[2], 1))
+
+    # round the float values in Y_test added to it by cv2.resize
+    Y_test = Y_test.round(0)
+
+    return X_test, Y_test
+
 def load_data(files_path, load_as="rgb", sub_images_size=(256, 256), validation_size=0.2):
     '''
     Aurguments:
@@ -114,6 +135,7 @@ def load_data(files_path, load_as="rgb", sub_images_size=(256, 256), validation_
     # split the training set to training and validation sets with the ratio 80:20 (by default) or valid_size
     X_train, X_valid, Y_train, Y_valid = train_test_split(X_train, Y_train, test_size=validation_size, random_state=42)
 
-    X_test, Y_test = load_testing_data(files_path, load_as="rgb", sub_images_size=(256, 256))
+    #X_test, Y_test = load_testing_data(files_path, load_as="rgb", sub_images_size=(256, 256))
+    X_test, Y_test = load_testing_data_as_it_is(files_path, load_as="rgb")
 
     return X_train, X_valid, X_test, Y_train, Y_valid, Y_test
