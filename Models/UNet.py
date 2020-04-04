@@ -6,8 +6,9 @@ from keras.layers import Input, concatenate
 from keras import backend as K
 
 class UNet:
-    def __init__(self):
-        pass
+    def __init__(self, depth=16):
+        self.depth = depth
+        return
 
     def encoder_block(self, input_layer, depth, dropout):
         output_layer = Conv2D(depth, (3, 3), activation='relu', padding="same")(input_layer)
@@ -49,7 +50,6 @@ class UNet:
         return output_layer
 
     def UNet(self, input_shape):
-        depth = 16
         input_layer = Input(shape=input_shape)
 
         block1, block2, block3, block4 = self.encoder(input_layer, depth)
