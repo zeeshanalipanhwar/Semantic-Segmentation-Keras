@@ -6,9 +6,8 @@ from keras.layers import Input, concatenate
 from keras import backend as K
 
 class UNet:
-    def __init__(self, depth=16):
+    def __init__(self, depth = 16):
         self.depth = depth
-        return
 
     def encoder_block(self, input_layer, depth, dropout):
         output_layer = Conv2D(depth, (3, 3), activation='relu', padding="same")(input_layer)
