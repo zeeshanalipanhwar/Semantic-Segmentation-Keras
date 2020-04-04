@@ -100,7 +100,7 @@ Either follow the colab notebooks for predictions using the pretrained models in
 
 ## 3. Load the pretrained model weights
 
-    model.load_weights("drive/My Drive/segnet_basic_72_f1.model")
+    model.load_weights("Model/segnet_basic.model")
 
     # load a sample image
     image_path = None
@@ -113,7 +113,7 @@ Either follow the colab notebooks for predictions using the pretrained models in
     import cv2
 
     # load a sample image
-    image_path = "drive/My Drive/sample_tissue_image.tif"
+    image_path = "Images/sample_tissue_image.tif"
     sample_image = cv2.cvtColor(cv2.imread(image_path), cv2.COLOR_BGR2RGB)
     sample_image = cv2.resize(sample_image, SegNet_Configs.RESHAPE)
     sample_image = np.array(sample_image, dtype="float") / 255.0
