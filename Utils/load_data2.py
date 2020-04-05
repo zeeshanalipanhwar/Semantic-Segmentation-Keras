@@ -47,7 +47,7 @@ def merge_subimages_into_image(subimages, image_size, overlap_ratio):
             count += 1
     return image
 
-def load_training_data(files_path, load_as="rgb", sub_images_size, overlap_ratio):
+def load_training_data(files_path, load_as, sub_images_size, overlap_ratio):
     X_train, Y_train = [], []
 
     for image_path in glob(files_path+'/Training/TissueImages/*'):
@@ -73,7 +73,7 @@ def load_training_data(files_path, load_as="rgb", sub_images_size, overlap_ratio
 
     return X_train, Y_train
 
-def load_testing_data(files_path, load_as="rgb", sub_images_size, overlap_ratio):
+def load_testing_data(files_path, load_as, sub_images_size, overlap_ratio):
     X_test, Y_test = [], []
 
     for image_path in glob(files_path+'/Test/TissueImages/*'):
@@ -131,12 +131,12 @@ def load_data(files_path, load_as="rgb", sub_images_size=(256, 256), overlap_rat
     Returns:
     '''
     # loading the train data
-    X_train, Y_train = load_training_data(files_path, load_as="rgb", sub_images_size, overlap_ratio)
+    X_train, Y_train = load_training_data(files_path, load_as, sub_images_size, overlap_ratio)
 
     # split the training set to training and validation sets with the ratio 80:20 (by default) or valid_size
     X_train, X_valid, Y_train, Y_valid = train_test_split(X_train, Y_train, test_size=validation_size, random_state=42)
 
-    #X_test, Y_test = load_testing_data(files_path, load_as="rgb", sub_images_size=(256, 256))
-    X_test, Y_test = load_testing_data_as_it_is(files_path, load_as="rgb")
+    # load the test data as it it
+    X_test, Y_test = load_testing_data_as_it_is(files_path, load_as)
 
     return X_train, X_valid, X_test, Y_train, Y_valid, Y_test
