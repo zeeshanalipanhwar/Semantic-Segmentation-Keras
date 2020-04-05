@@ -47,7 +47,7 @@ def merge_subimages_into_image(subimages, image_size, overlap_ratio):
             count += 1
     return image
 
-def load_training_data(files_path, load_as="rgb", sub_images_size):
+def load_training_data(files_path, load_as="rgb", sub_images_size, overlap_ratio):
     X_train, Y_train = [], []
 
     for image_path in glob(files_path+'/Training/TissueImages/*'):
