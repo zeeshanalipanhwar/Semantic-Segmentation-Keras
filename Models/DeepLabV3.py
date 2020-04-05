@@ -34,33 +34,33 @@ class DeepLabV3:
 
         # Block one that reduces the input shape by 2
         output_layer = Conv2D(self.depth, (3, 3), activation='relu', padding="same")(input_layer)
-        output_layer = BatchNormalization(output_layer)
+        output_layer = BatchNormalization()(output_layer)
         output_layer = Conv2D(self.depth, (3, 3), activation='relu', padding="same")(output_layer)
-        output_layer = BatchNormalization(output_layer)
+        output_layer = BatchNormalization()(output_layer)
         output_layer = MaxPooling2D(pool_size=(2, 2))(output_layer)
         output_layer = Dropout(dropout)(output_layer)
         
         # Block two that reduces the input shape by 4
         output_layer = Conv2D(self.depth*2, (3, 3), activation='relu', padding="same")(output_layer)
-        output_layer = BatchNormalization(output_layer)
+        output_layer = BatchNormalization()(output_layer)
         output_layer = Conv2D(self.depth*2, (3, 3), activation='relu', padding="same")(output_layer)
-        output_layer = BatchNormalization(output_layer)
+        output_layer = BatchNormalization()(output_layer)
         output_layer = MaxPooling2D(pool_size=(2, 2))(output_layer)
         output_layer = Dropout(dropout)(output_layer)
         
         # Block three that reduces the input shape by 8
         output_layer = Conv2D(self.depth*4, (3, 3), activation='relu', padding="same")(output_layer)
-        output_layer = BatchNormalization(output_layer)
+        output_layer = BatchNormalization()(output_layer)
         output_layer = Conv2D(self.depth*4, (3, 3), activation='relu', padding="same")(output_layer)
-        output_layer = BatchNormalization(output_layer)
+        output_layer = BatchNormalization()(output_layer)
         output_layer = MaxPooling2D(pool_size=(2, 2))(output_layer)
         output_layer = Dropout(dropout)(output_layer)
         
         # Block four that retains 16 using Atrous Convolution
         output_layer = Conv2D(self.depth*8, (3, 3), dilation_rate=(2,2), activation='relu', padding="same")(output_layer)
-        output_layer = BatchNormalization(output_layer)
+        output_layer = BatchNormalization()(output_layer)
         output_layer = Conv2D(self.depth*8, (3, 3), dilation_rate=(2,2), activation='relu', padding="same")(output_layer)
-        output_layer = BatchNormalization(output_layer)
+        output_layer = BatchNormalization()(output_layer)
         output_layer = Dropout(dropout)(output_layer)
         
         # Block five of atrous spatial pyramid pooling and image max pooling
@@ -70,7 +70,7 @@ class DeepLabV3:
         # Block six of concatination and then a 1x1 conv on the concatenated output
         concatenated = concatenate([conv11_layer, atrous_conv1, atrous_conv2, atrous_conv3, maxpooled_in])        
         output_layer = Conv2D(1, (1, 1), activation="softmax", padding="same")(concatenated)
-        output_layer = BatchNormalization(output_layer)
+        output_layer = BatchNormalization()(output_layer)
         
         # Block seven of 8 times upsampling of the output using Bilinear interpolation
         output_layer = UpSampling2D(size=(8, 8), data_format=None, interpolation='bilinear')(output_layer)
