@@ -1,8 +1,8 @@
 from keras.models import Model
 from keras.layers.normalization import BatchNormalization
-from keras.layers.convolutional import Conv2D, MaxPooling2D, Conv2DTranspose
+from keras.layers.convolutional import Conv2D, MaxPooling2D
 from keras.layers.core import Activation, Flatten, Dropout, Dense
-from keras.layers import Input, concatenate
+from keras.layers import Input, concatenate, UpSampling2D
 from keras import backend as K
 
 class DeepLabV3:
@@ -22,7 +22,9 @@ class DeepLabV3:
 
         return conv11_layer, atrous_conv1, atrous_conv2, atrous_conv3
 
-    def encoder(self, input_layer, depth, dropout = 0.25):
+    def DeepLabV3(self, input_shape, depth):
+        input_layer = Input(shape=input_shape)
+
         # Block one that reduces the input shape by 4
         output_layer = Conv2D(depth, (3, 3), activation='relu', padding="same")(input_layer)
         output_layer = Conv2D(depth, (3, 3), activation='relu', padding="same")(output_layer)
@@ -53,18 +55,14 @@ class DeepLabV3:
 
         # Block six of concatination and then a 1x1 conv on the concatenated output
         concatenated = concatenate([conv11_layer, atrous_conv1, atrous_conv2, atrous_conv3, maxpooled_in])
-        encoded_out = Conv2D(depth, (1, 1), activation='relu', padding="same")(concatenated)
-
-        return encoded_out
+        output_layer = Conv2D(depth, (1, 1), activation='relu', padding="same")(concatenated)
         
-    def decoder(self, encoded_out, output_shape):
-        decoded_out = Conv2DTranspose(filters=output_shape[-1], kernel_size=(520, 520), strides=(8, 8))(encoded_out)
-        return decoded_out
-
-    def DeepLabV3(self, input_shape, depth):
-        input_layer = Input(shape=input_shape)
-        encoded_out = self.encoder(input_layer, depth)
-        decoded_out = self.decoder(encoded_out, output_shape=input_shape)
-        decoded_out = Dense(1, activation="softmax")(decoded_out)
-        model = Model(input_layer, decoded_out)
+        # Block of 16 times upsampling of the output using Bilinear interpolation
+        output_layer = UpSampling2D(size=(16, 16), data_format=None, interpolation='bilinear')(output_layer)
+        
+        # Dense Layer for classification
+        output_layer = Dense(1, activation="softmax")(output_layer)
+        
+        # Create the model using the input layer and the final output layer
+        model = Model(input_layer, output_layer)
         return model
