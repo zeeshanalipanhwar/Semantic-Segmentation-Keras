@@ -59,7 +59,7 @@ F1 Score is defined as the harmonic mean of precision and recall as <img src="ht
 
 # Quantitatvie Results
 | Model | Accuracy | Precision | Recall | F1 Score (Dice Score) |
-| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
 | SegNet | 0.9138 | 0.79 | 0.77 | 0.7799 |
 | UNet | 0.9048 | 0.72 | 0.86 | 0.7802 |
 | DeepLabV3 | - | - | - | - |
