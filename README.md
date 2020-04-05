@@ -75,10 +75,10 @@ F1 Score is defined as the harmonic mean of precision and recall as <img src="ht
 ![DeepLabV3](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/Images/DeepLabV3_Qualitative_Results.JPG)
 
 # Replication Instructions
-Follow the colab notebooks for training-and-testing in the Colab Notebooks directory for respective models.
+Use the colab notebooks for training-and-testing in the Colab Notebooks directory for respective models.
 
 # Load Pretrained Models
-Either follow the colab notebooks for predictions using the pretrained models in the Colab Notebooks directory for respective models, or follow the following steps using your console.
+Either use the colab notebooks in the Colab Notebooks directory for predictions for respective models, or follow the following steps using your console.
 
 ## 1. Clone this repository to your current directory
 
@@ -87,43 +87,74 @@ Either follow the colab notebooks for predictions using the pretrained models in
 
 ## 2. Create a model
 
-    from Semantic_Segmentation_Keras.Models import SegNet
-    from Semantic_Segmentation_Keras.Configs import SegNet_Configs
+    # import all the models and their respective configuration files
+    from Semantic_Segmentation_Keras.Models import SegNet, UNet, DeepLabV3
+    from Semantic_Segmentation_Keras.Configs import SegNet_Configs, UNet_Configs, DeepLabV3_Configs
 
-    # create the model
-    model = SegNet.SegNet(depth=SegNet_Configs.DEPTH).SegNet(input_shape=(SegNet_Configs.RESHAPE[0],
-                                                                          SegNet_Configs.RESHAPE[1], 3))
-    # following two models are NOT IMPLEMENTED YET
-    #model = UNet.SegNet(depth=UNet_Configs.DEPTH).UNet(input_shape=(UNet_Configs.RESHAPE[0],
-                                                                     UNet_Configs.RESHAPE[1], 3))
-    #model = DeepLabV3.DeepLabV3(depth=DeepLabV3_Configs.DEPTH).DeepLabV3(input_shape=(DeepLabV3_Configs.RESHAPE[0],
-                                                                                       DeepLabV3_Configs.RESHAPE[1], 3))
+    # create a model of your choice among the above availabe models
+    model = SegNet.SegNet(depth=SegNet_Configs.DEPTH).SegNet(input_shape=(None,None, 3))
+    #model = UNet.SegNet(depth=UNet_Configs.DEPTH).UNet(input_shape=(None, None, 3))
+    #model = DeepLabV3.DeepLabV3(depth=DeepLabV3_Configs.DEPTH).DeepLabV3(input_shape=(None, None, 3))
+    
+    # optionally view the created model summary
     model.summary()
 
-## 3. Load the pretrained model weights
+## 3. Load the respective pretrained-model weights
 
     model.load_weights("Model/segnet_basic.model")
-
-    # load a sample image
-    image_path = None
-    sample_image = data_loading.load_image(image_path)
+    #model.load_weights("Model/unet_basic.model")
+    #model.load_weights("Model/deeplabv3_basic.model")
 
 ## 4. Make prediction for a sample on the network
 
-    from Semantic_Segmentation_Keras.Utils import display, load_data
+    from Semantic_Segmentation_Keras.Utils import display
     import numpy as np
     import cv2
 
+    print_statements = False # do you need to see the print results blow?
+
     # load a sample image
-    image_path = "Images/sample_tissue_image.tif"
+    image_path = "drive/My Drive/sample_tissue_image.tif"
     sample_image = cv2.cvtColor(cv2.imread(image_path), cv2.COLOR_BGR2RGB)
-    sample_image = cv2.resize(sample_image, SegNet_Configs.RESHAPE)
     sample_image = np.array(sample_image, dtype="float") / 255.0
     sample_image = np.expand_dims(sample_image, axis=0)
+    if print_statements: print ("sample_image shape:", sample_image.shape)
+
+    # in order to avoid a crash of model, make sure the image spatial dimentions are a multiple of 16
+    # the multiple factor 16 represented the ratio to which the actual image is reduced to by a model
+    padx, pady = 0, 0 # number zeros to add in x and y respectively
+    origional_sample_image_shape = sample_image.shape
+    if print_statements: print ("origional_sample_image_shape", origional_sample_image_shape)
+
+    if sample_image.shape[1]//16 != sample_image.shape[1]/16:
+        padx = int(2**round(np.log2(sample_image.shape[1]))-sample_image.shape[1])//2
+    if sample_image.shape[2]//16 != sample_image.shape[2]/16:
+        pady = int(2**round(np.log2(sample_image.shape[2]))-sample_image.shape[2])//2
+    if print_statements: print ("padx={}, pady={}".format(padx, pady))
+
+    sample_image_padded = np.zeros((1, sample_image.shape[1]+2*padx,
+                                      sample_image.shape[2]+2*pady, 3))
+    if print_statements: print ("sample_image_padded shape", sample_image_padded.shape)
+
+    sample_image_padded[:, padx:padx+sample_image.shape[1],
+                          pady:pady+sample_image.shape[2], :] = sample_image
+    sample_image = sample_image_padded
+    if print_statements: print ("sample_image shape:", sample_image.shape)
 
     # make prediction for a sample on the network
     prediction = model.predict(sample_image)
     prediction = prediction.round(0)
+    if print_statements: print ("prediction shape:", prediction.shape)
+
+    # discard the predictions for the padded portion of sample_image
+    prediction = prediction[:, padx:padx+origional_sample_image_shape[1],
+                              pady:pady+origional_sample_image_shape[2], :]
+    if print_statements: print ("prediction shape:", prediction.shape)
+
+    # remove the padded zeros from sample_image
+    sample_image = sample_image[:, padx:padx+origional_sample_image_shape[1],
+                                    pady:pady+origional_sample_image_shape[2], :]
+    if print_statements: print ("sample_image shape:", sample_image.shape)
 
     # display the sample image along with its predicted mask
     display.display_masked(sample_image[0], prediction[0], "Tissue Image", "Predicted Mask")
