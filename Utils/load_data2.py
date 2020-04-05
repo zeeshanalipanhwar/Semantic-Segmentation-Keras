@@ -19,11 +19,11 @@ def split_image_into_subimages(image, sub_image_size, overlap_ratio):
     W_overlap = round(sub_image_size[0] * overlap_ratio)
     H_overlap = round(sub_image_size[1] * overlap_ratio)
     subimages = []
-    for i in range(0, image.shape[0], W_overlap):
+    for i in range(0, image.shape[0], sub_image_size[0]-W_overlap):
         x1 = i
         if x1+sub_image_size[0] <= image.shape[0]: x2 = x1+sub_image_size[0]
         else: x1, x2 = image.shape[0]-sub_image_size[0], image.shape[0]
-        for j in range(0, image.shape[1], H_overlap):
+        for j in range(0, image.shape[1], sub_image_size[1]-H_overlap):
             y1 = j
             if y1+sub_image_size[1] <= image.shape[1]: y2 = y1+sub_image_size[1]
             else: y1, y2 = image.shape[1]-sub_image_size[1], image.shape[1]
