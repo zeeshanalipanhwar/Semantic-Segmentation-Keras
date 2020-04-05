@@ -1,7 +1,6 @@
-RESHAPE = (1024, 1024) # resize the images
+DEPTH = 64 # the number of filters of the first conv layer of the encoder of the SegNet
 
-DEPTH = 64 # the number of filters of the first conv layer of the decoder of the SegNet
-
-BATCHSIZE = 1
+# Training hyperparameters
+BATCHSIZE = 16
 EPOCHS = 100
 OPTIMIZER = "adam"
