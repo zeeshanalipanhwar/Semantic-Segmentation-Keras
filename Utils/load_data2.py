@@ -54,8 +54,8 @@ def load_training_data(files_path, load_as, sub_images_size, overlap_ratio):
         image_name = image_path.split('/')[-1]
         tissue_image = load_image(files_path+'/Training/TissueImages/'+image_name, load_as)
         ground_truth = load_image(files_path+'/Training/GroundTruth/'+image_name.split('.')[0]+'_bin_mask.png', load_as)
-        tissue_subimages = split_image_into_subimages(tissue_image, sub_image_size, overlap_ratio)
-        ground_truth_subimages = split_image_into_subimages(ground_truth, sub_image_size, overlap_ratio)
+        tissue_subimages = split_image_into_subimages(tissue_image, sub_images_size, overlap_ratio)
+        ground_truth_subimages = split_image_into_subimages(ground_truth, sub_images_size, overlap_ratio)
         X_train.append(tissue_subimages)
         Y_train.append(ground_truth_subimages)
 
@@ -80,8 +80,8 @@ def load_testing_data(files_path, load_as, sub_images_size, overlap_ratio):
         image_name = image_path.split('/')[-1]
         tissue_image = load_image(files_path+'/Test/TissueImages/'+image_name, load_as)
         ground_truth = load_image(files_path+'/Test/GroundTruth/'+image_name.split('.')[0]+'_bin_mask.png', load_as)
-        tissue_subimages = split_image_into_subimages(tissue_image, sub_image_size, overlap_ratio)
-        ground_truth_subimages = split_image_into_subimages(ground_truth, sub_image_size, overlap_ratio)
+        tissue_subimages = split_image_into_subimages(tissue_image, sub_images_size, overlap_ratio)
+        ground_truth_subimages = split_image_into_subimages(ground_truth, sub_images_size, overlap_ratio)
         X_test.append(tissue_subimages)
         Y_test.append(ground_truth_subimages)
 
