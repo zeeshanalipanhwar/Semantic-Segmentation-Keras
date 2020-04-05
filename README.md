@@ -62,7 +62,7 @@ F1 Score is defined as the harmonic mean of precision and recall as <img src="ht
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 | SegNet | 0.2753 | 0.8856 | 0.69 | 0.77 | 0.7285 |
 | UNet | 0.2066 | 0.9092 | 0.74 | 0.83 | 0.7782 |
-| DeepLabV3 | Content Cell | Content Cell | Content Cell | Content Cell | Content Cell |
+| DeepLabV3 | - | - | - | - | - |
 
 # Qualitative Results
 ## 1. SegNet
