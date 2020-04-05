@@ -7,6 +7,7 @@ I have implemented three different SegNet, UNet, and DeepLabV3 for Semantic Segm
 # Dataset
 **Monuseg dataset** (available [here](https://monuseg.grand-challenge.org/Data/)) contains multi organ tissue images with the ground truth segmentation masks for nucli. The dataset can also be downloaded from [this](https://drive.google.com/drive/folders/1hnHjxFb52BdhxkcV_N7MdWLdagzXHzmq?usp=sharing) Google Drive link.
 
+Following is a sample training Tissue image with its correcsponding ground truth segmentation mask.
 ![Train0](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/Images/Train0.JPG)
 
 # Requirements
@@ -16,38 +17,37 @@ I have implemented three different SegNet, UNet, and DeepLabV3 for Semantic Segm
 # Project Structure
 
     .
-    ├── Colab Notebooks
-    ├── Configs
-    ├── Models
-        ├── DeepLabV3.py
-        ├── SegNet.py
-        ├── SegNet_Summary.txt
-        ├── segnet_basic.model
-        └── UNet.py
-    ├── Training Plots
-    ├── Utils
-    ├── README.md
-    └── train.py
+    ├── Colab Notebooks     # interactive notebooks containing sets of steps followed for training, testing, and predictions
+    ├── Configs             # configuration files for respective models
+    ├── Images              # screenshots or images needed for better presentation of README.md file
+    ├── Models              # complete implementations of models of the project
+        ├── DeepLabV3.py    # a complete implementation of a DeepLabV3 standard model
+        ├── SegNet.py       # a complete implementation of a SegNet standard model
+        └── UNet.py         # a complete implementation of a UNet standard model
+    ├── Training Plots      # training and validation performance graphs for loss, accuracy, and f1 scores
+    ├── Utils               # files that include custom functionalities needed for this project
+    ├── README.md           # a complete overview of this directory
+    └── train.py            # functions to train a model with simple or augmented data
 
 
 # 1. SegNet
 ## Model Diagram
 ![SegNet Architecture](https://www.researchgate.net/profile/Vijay_Badrinarayanan/publication/283471087/figure/fig1/AS:391733042008065@1470407843299/An-illustration-of-the-SegNet-architecture-There-are-no-fully-connected-layers-and-hence.png)
 ## Model Summary
-Go to Model directory to view the model summary from the respective text file.
+Go to respective colab notebook to view the detailed model summary.
 
 # 2. UNet
 ## Model Diagram:
 ![UNet Architecture](https://vasanashwin.github.io/retrospect/images/unet.png)
 ## Model Summary
-Go to Model directory to view the model summary from the respective text file.
+Go to respective colab notebook to view the detailed model summary.
 
 # 3. DeepLabV3
 ## Model Diagram
 ![DeepLabV3 Architecture](https://miro.medium.com/max/1590/1*R7tiLxyeHYHMXTGJIanZiA.png)
 ![DeepLabV3 Architecture](https://media.arxiv-vanity.com/render-output/2143434/x1.png)
 ## Model Summary
-Go to Model directory to view the model summary from the respective text file.
+Go to respective colab notebook to view the detailed model summary.
 
 # Performance Measures
 
@@ -75,11 +75,15 @@ F1 Score is defined as the harmonic mean of precision and recall as <img src="ht
 ![DeepLabV3](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/Images/DeepLabV3_Qualitative_Results.JPG)
 
 # Replication Instructions
-Use the colab notebooks for training-and-testing in the Colab Notebooks directory for respective models.
+Use the colab notebooks in the Colab Notebooks directory for training, testing, and predictions on different models.
 
-# Load Pretrained Models
-Either use the colab notebooks in the Colab Notebooks directory for predictions for respective models, or follow the following steps using your console.
+# Pretrained Models
+- SegNet_basic.model: https://drive.google.com/file/d/1-_FIvsHR_7hz0qnQe4lbU9YNHMNZ0GEF/view?usp=sharing
+- UNet_basic.model: https://drive.google.com/file/d/13QR42aOatLQIN0G6bZ8z24TaW6LasEMw/view?usp=sharing
+- DeepLabV3_basic.model: https://drive.google.com/file/d/1m1G-3huYC775H9R39WCC60WKaDvW0Ntt/view?usp=sharing
 
+# Instructions to load a pretrained model
+Either use the colab notebooks in the Colab Notebooks directory for predictions on respective models, or follow the following steps using your console.
 ## 1. Clone this repository to your current directory
 
     !git clone https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras
