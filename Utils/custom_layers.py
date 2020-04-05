@@ -21,10 +21,13 @@ class MaxPooling2DWithIndices(Layer):
         return [mpooled, indices]
 
     def compute_output_shape(self, input_shape):
-        if isinstance(self.pool_size,int):
-            output_shape = (input_shape[0], input_shape[1]//self.pool_size, input_shape[2]//self.pool_size, input_shape[3])
-        else: output_shape = (input_shape[0], input_shape[1]//self.pool_size[0], input_shape[2]//self.pool_size[1], input_shape[3])
-        return [output_shape,output_shape]
+        if input_shape[1] == None and input_shape[2] == None:
+            output_shape = input_shape
+        else:
+            if isinstance(self.pool_size, int):
+                output_shape = (input_shape[0], input_shape[1]//self.pool_size, input_shape[2]//self.pool_size, input_shape[3])
+            else: output_shape = (input_shape[0], input_shape[1]//self.pool_size[0], input_shape[2]//self.pool_size[1], input_shape[3])
+        return [output_shape, output_shape]
 
 class MaxUnpooling2DWithIndices(Layer):
     def __init__(self, **kwargs):
@@ -48,4 +51,6 @@ class MaxUnpooling2DWithIndices(Layer):
             return output
 
     def compute_output_shape(self, input_shape):
-        return input_shape[0][0],input_shape[0][1]*2,input_shape[0][2]*2,input_shape[0][3]
+        if input_shape[1] == None and input_shape[2] == None:
+            return (input_shape[0][0], input_shape[0][1], input_shape[0][2], input_shape[0][3])
+        else: return (input_shape[0][0], input_shape[0][1]*2, input_shape[0][2]*2, input_shape[0][3])
