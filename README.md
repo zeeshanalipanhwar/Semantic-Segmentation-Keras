@@ -72,6 +72,7 @@ F1 Score is defined as the harmonic mean of precision and recall as <img src="ht
 ![UNet](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/Images/UNet_Qualitative_Results.JPG)
 
 ## 3. DeepLabV3
+![DeepLabV3](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/Images/DeepLabV3_Qualitative_Results.JPG)
 
 # Replication Instructions
 Follow the colab notebooks for training-and-testing in the Colab Notebooks directory for respective models.
