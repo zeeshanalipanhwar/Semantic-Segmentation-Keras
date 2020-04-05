@@ -74,7 +74,7 @@ class DeepLabV3:
         # Block seven of 8 times upsampling of the output using Bilinear interpolation
         output_layer = UpSampling2D(size=(8, 8), data_format=None, interpolation='bilinear')(output_layer)
         
-        output_layer = Activation("softmax")(output_layer)
+        output_layer = Activation("sigmoid")(output_layer)
         
         # Create the model using the input layer and the final output layer
         model = Model(input_layer, output_layer)
