@@ -40,17 +40,17 @@ These augmentations were applied on *10%* of the training and *20%* of the valid
 # Project Structure
 
     .
-    ├── Colab Notebooks     # interactive notebooks containing sets of steps followed for training, testing, and predictions
-    ├── Configs             # configuration files for respective models
-    ├── Images              # screenshots or images needed for better presentation of README.md file
-    ├── Models              # complete implementations of models of the project
-        ├── DeepLabV3.py    # a complete implementation of a DeepLabV3 standard model
-        ├── SegNet.py       # a complete implementation of a SegNet standard model
-        └── UNet.py         # a complete implementation of a UNet standard model
-    ├── Training Plots      # training and validation performance graphs for loss, accuracy, and f1 scores
-    ├── Utils               # files that include custom functionalities needed for this project
-    ├── README.md           # a complete overview of this directory
-    └── train.py            # functions to train a model with simple or augmented data
+    ├── Colab Notebooks   # interactive notebooks containing sets of steps followed for training, testing, and predictions
+    ├── Configs           # configuration files for respective models
+    ├── Images            # screenshots or images needed for better presentation of README.md file
+    ├── Models            # complete implementations of models of the project
+        ├── DeepLabV3.py  # a complete implementation of a DeepLabV3 standard model
+        ├── SegNet.py     # a complete implementation of a SegNet standard model
+        └── UNet.py       # a complete implementation of a UNet standard model
+    ├── Training Plots    # training and validation performance graphs for loss, accuracy, and f1 scores
+    ├── Utils             # files that include custom functionalities needed for this project
+    ├── README.md         # a complete overview of this directory
+    └── train.py          # functions to train a model with simple or augmented data
 
 
 # 1. SegNet
