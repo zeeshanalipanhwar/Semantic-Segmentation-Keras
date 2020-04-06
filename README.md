@@ -195,3 +195,6 @@ The [./Utils/custom_layers.py](https://github.com/zeeshanalipnhwr/Semantic-Segme
 This project structure followed guidlines from [DongjunLee/hb-base](https://github.com/DongjunLee/hb-base) repository.
 
 The [./CONTRIBUTING.md](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/CONTRIBUTING.md) was adapted from a basic template for [contributing guidelines](https://gist.github.com/briandk/3d2e8b3ec8daf5a27a62).
+
+## Author
+`Maintainer` [Zeeshan Ali](https://github.com/zeeshanalipnhwr)(zapt1860@gmail.com)
