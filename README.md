@@ -10,6 +10,25 @@ I have implemented three different SegNet, UNet, and DeepLabV3 for Semantic Segm
 Following is a sample training Tissue image with its correcsponding ground truth segmentation mask.
 ![Train0](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/Images/Train0.JPG)
 
+Tissue images shapes: *1000x1000x3*
+Ground truth segmentation masks shapes: *1000x1000x3*
+
+# Data Preprocessing for training
+1. The training data is split into training and validation sets with 75:25 ratio.
+2. Ground truth segmentation masks are reshaped such that only one channal of each is kept.
+3. Both the training and validation images and their correcsponding ground truth segmentation masks are split into *256x256* subimages using sliding-window approch with around 20% overlap ratio using a custom data spliter.
+
+# Data Preprocessing for testing
+1. Training images and their correcsponding ground truth segmentation masks are padded with zeroes such that we get *1024x1024* size images. This is done to avoid model crash or to avoid getting output shape lesser than that of input.
+2. After getting predictions on these padded test images, the paddings are removed from predictions and test data to get performance measures.
+
+# Data Augmentation
+Following three augmentations are applied on the training and validation images and their correcsponding ground truth segmentation masks using a custom data augmenter:
+1. Rotations of angles 90, 180, 270 degrees.
+2. Horizontal flips
+3. Vertical flips
+These augmentations were applied on 10% of the training and 20% of the validation data.
+
 # Requirements
 - python version 3.x
 - tensorflow version 1.x
