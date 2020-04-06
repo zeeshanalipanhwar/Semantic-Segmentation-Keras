@@ -185,3 +185,8 @@ Either use the colab notebooks in the Colab Notebooks directory for predictions 
 
     # display the sample image along with its predicted mask
     display.display_masked(sample_image[0], prediction[0], "Tissue Image", "Predicted Mask")
+
+## License
+By contributing, you agree that your contributions will be licensed under its MIT License.
+
+## References
