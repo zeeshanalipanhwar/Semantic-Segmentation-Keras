@@ -51,4 +51,4 @@ I'm again borrowing these from [Facebook's Guidelines](https://github.com/facebo
 By contributing, you agree that your contributions will be licensed under its MIT License.
 
 ## References
-This document was adapted from a basic template for [contributing guidelines][https://gist.github.com/briandk/3d2e8b3ec8daf5a27a62] adapted from Facebook's open source guidelines.
+This document was adapted from a basic template for [contributing guidelines](https://gist.github.com/briandk/3d2e8b3ec8daf5a27a62) adapted from Facebook's open source guidelines.
