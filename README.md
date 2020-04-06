@@ -189,7 +189,9 @@ Either use the colab notebooks in the Colab Notebooks directory for predictions 
 ## License
 This project is licensed under the terms of the [MIT License](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/LICENSE).
 
-## References
-[./Utils/custom_layers.py](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/Utils/custom_layers.py) contains updated classes from [ykamikawa/tf-keras-SegNet/layers.py](https://github.com/ykamikawa/tf-keras-SegNet/blob/master/layers.py).
+## Acknowledgements
+The [./Utils/custom_layers.py](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/Utils/custom_layers.py) contains updated classes from [ykamikawa/tf-keras-SegNet/layers.py](https://github.com/ykamikawa/tf-keras-SegNet/blob/master/layers.py) file.
 
-[./CONTRIBUTING.md](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/CONTRIBUTING.md) was adapted from a basic template for [contributing guidelines](https://gist.github.com/briandk/3d2e8b3ec8daf5a27a62).
+This project structure followed guidlines from [DongjunLee/hb-base](https://github.com/DongjunLee/hb-base) repository.
+
+The [./CONTRIBUTING.md](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/CONTRIBUTING.md) was adapted from a basic template for [contributing guidelines](https://gist.github.com/briandk/3d2e8b3ec8daf5a27a62).
