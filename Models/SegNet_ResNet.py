@@ -5,7 +5,7 @@ from keras.models import Model
 
 from ..Utils.custom_layers import MaxPooling2DWithIndices, MaxUnpooling2DWithIndices
 
-class SegNet:
+class SegNet_ResNet:
     def __init__(self, depth = 64):
         self.depth = depth
 
