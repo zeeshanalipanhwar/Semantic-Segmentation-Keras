@@ -1,6 +1,6 @@
 from keras.layers.normalization import BatchNormalization
 from keras.layers.convolutional import Conv2D
-from keras.layers import Input
+from keras.layers import Input, Add
 from keras.models import Model
 
 from ..Utils.custom_layers import MaxPooling2DWithIndices, MaxUnpooling2DWithIndices
@@ -20,7 +20,8 @@ class SegNet_ResNet:
         output = input_layer
         for i in range(num_comp_convs):
             output = self.CompositeConv2D(output, 2, filters)
-        return output+input_layer
+        output = Add()([output, input_layer])
+        return output
 
     def encoder_resnet(self, input_layer):
         encoded_out = Conv2D(self.depth, kernel_size=(7, 7), padding='same', activation="relu")(input_layer)
