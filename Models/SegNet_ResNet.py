@@ -19,7 +19,7 @@ class SegNet_ResNet:
     def resnet_block(self, input_layer, num_comp_convs, filters):
         output = input_layer
         for i in range(num_comp_convs):
-            output = CompositeConv2D(output, 2, filters)
+            output = self.CompositeConv2D(output, 2, filters)
         return output+input_layer
 
     def encoder_resnet(self, input_layer):
