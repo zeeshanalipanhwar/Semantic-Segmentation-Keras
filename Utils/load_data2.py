@@ -4,6 +4,8 @@ import cv2
 
 from sklearn.model_selection import train_test_split
 
+from custom_images_spliter_and_merger import split_image_into_subimages
+
 def load_image(image_path, load_as="rgb"): #Load an image from a file path
     if load_as.lower() == "gray": color_scheme = cv2.COLOR_BGR2GRAY
     elif load_as.lower() == "hls": color_scheme = cv2.COLOR_BGR2HLS
@@ -22,8 +24,8 @@ def load_training_data(files_path, load_as, sub_images_size, overlap_ratio):
         image_name = image_path.split('/')[-1]
         tissue_image = load_image(files_path+'/Training/TissueImages/'+image_name, load_as)
         ground_truth = load_image(files_path+'/Training/GroundTruth/'+image_name.split('.')[0]+'_bin_mask.png', load_as)
-        tissue_subimages = custom_images_spliter_and_merger.split_image_into_subimages(tissue_image, sub_images_size, overlap_ratio)
-        ground_truth_subimages = custom_images_spliter_and_merger.split_image_into_subimages(ground_truth, sub_images_size, overlap_ratio)
+        tissue_subimages = split_image_into_subimages(tissue_image, sub_images_size, overlap_ratio)
+        ground_truth_subimages = split_image_into_subimages(ground_truth, sub_images_size, overlap_ratio)
         X_train.append(tissue_subimages)
         Y_train.append(ground_truth_subimages)
 
