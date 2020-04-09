@@ -4,7 +4,7 @@ import cv2
 
 from sklearn.model_selection import train_test_split
 
-from custom_images_spliter_and_merger import split_image_into_subimages
+from .custom_images_spliter_and_merger import split_image_into_subimages
 
 def load_image(image_path, load_as="rgb"): #Load an image from a file path
     if load_as.lower() == "gray": color_scheme = cv2.COLOR_BGR2GRAY
