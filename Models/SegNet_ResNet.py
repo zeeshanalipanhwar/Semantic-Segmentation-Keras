@@ -28,12 +28,15 @@ class SegNet_ResNet:
         encoded_out, indices1 = MaxPooling2DWithIndices(pool_size=2,strides=2)(encoded_out)
 
         encoded_out = self.resnet_block(encoded_out, 3, self.depth)
+        encoded_out = Conv2D(self.depth, kernel_size=(3, 3), padding='same', activation="relu")(encoded_out)
         encoded_out, indices2 = MaxPooling2DWithIndices(pool_size=2, strides=2)(encoded_out)
 
         encoded_out = self.resnet_block(encoded_out, 3, self.depth)
+        encoded_out = Conv2D(self.depth, kernel_size=(3, 3), padding='same', activation="relu")(encoded_out)
         encoded_out, indices3 = MaxPooling2DWithIndices(pool_size=2, strides=2)(encoded_out)
 
         encoded_out = self.resnet_block(encoded_out, 5, self.depth)
+        encoded_out = Conv2D(self.depth, kernel_size=(3, 3), padding='same', activation="relu")(encoded_out)
         encoded_out, indices4 = MaxPooling2DWithIndices(pool_size=2, strides=2)(encoded_out)
 
         encoded_out = self.resnet_block(encoded_out, 2, self.depth)
@@ -46,12 +49,15 @@ class SegNet_ResNet:
         decoded_out = self.resnet_block(decoded_out, 2, self.depth)
 
         decoded_out = MaxUnpooling2DWithIndices()([decoded_out, indices4])
+        decoded_out = Conv2D(self.depth, kernel_size=(3, 3), padding='same', activation="relu")(decoded_out)
         decoded_out = self.resnet_block(decoded_out, 5, self.depth)
 
         decoded_out = MaxUnpooling2DWithIndices()([decoded_out, indices3])
+        decoded_out = Conv2D(self.depth, kernel_size=(3, 3), padding='same', activation="relu")(decoded_out)
         decoded_out = self.resnet_block(decoded_out, 3, self.depth)
 
         decoded_out = MaxUnpooling2DWithIndices()([decoded_out, indices2])
+        decoded_out = Conv2D(self.depth, kernel_size=(3, 3), padding='same', activation="relu")(decoded_out)
         decoded_out = self.resnet_block(decoded_out, 3, self.depth)
 
         decoded_out = MaxUnpooling2DWithIndices()([decoded_out, indices1])
