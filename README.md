@@ -114,9 +114,11 @@ Either use the colab notebooks in the Colab Notebooks directory for predictions 
 
 ## 2. Create a model
 
-    # import all the models and their respective configuration files
-    from Semantic_Segmentation_Keras.Models import SegNet, UNet, DeepLabV3
-    from Semantic_Segmentation_Keras.Configs import SegNet_Configs, UNet_Configs, DeepLabV3_Configs
+```python
+# import all the models and their respective configuration files
+from Semantic_Segmentation_Keras.Models import SegNet, UNet, DeepLabV3
+from Semantic_Segmentation_Keras.Configs import SegNet_Configs, UNet_Configs, DeepLabV3_Configs
+```
 
     # create a model of your choice among the above availabe models
     model = SegNet.SegNet(depth=SegNet_Configs.DEPTH).SegNet(input_shape=(None,None, 3))
