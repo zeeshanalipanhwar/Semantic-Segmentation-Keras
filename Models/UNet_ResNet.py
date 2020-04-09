@@ -36,7 +36,7 @@ class UNet_ResNet:
         block4 = self.encoder_block(block3, depth*8, dropout=0.25, num_comp_convs=5)
         return block1, block2, block3, block4
 
-    def decoder_block(self, input_layer, depth, dropout):
+    def decoder_block(self, input_layer, depth, dropout, num_comp_convs):
         output_layer = self.resnet_block(input_layer, num_comp_convs, depth)
         output_layer = Dropout(dropout)(output_layer)
         output_layer = Add()([output_layer, input_layer])
@@ -45,19 +45,19 @@ class UNet_ResNet:
     def decoder(self, block1, block2, block3, block4, block5, depth):
         upconvolved = Conv2DTranspose(depth, (3, 3), strides = (2, 2), padding = 'same')(block5)
         concatenated = concatenate([block4, upconvolved])
-        output_layer = self.decoder_block(concatenated, depth, dropout=0.25)
+        output_layer = self.decoder_block(concatenated, depth, dropout=0.25, num_comp_convs=2)
 
         upconvolved = Conv2DTranspose(depth, (3, 3), strides = (2, 2), padding = 'same')(output_layer)
         concatenated = concatenate([block3, upconvolved])
-        output_layer = self.decoder_block(concatenated, depth//2, dropout=0.25)
+        output_layer = self.decoder_block(concatenated, depth//2, dropout=0.25, num_comp_convs=5)
 
         upconvolved = Conv2DTranspose(depth, (3, 3), strides = (2, 2), padding = 'same')(output_layer)
         concatenated = concatenate([block2, upconvolved])
-        output_layer = self.decoder_block(concatenated, depth//4, dropout=0.25)
+        output_layer = self.decoder_block(concatenated, depth//4, dropout=0.25, num_comp_convs=3)
 
         upconvolved = Conv2DTranspose(depth, (3, 3), strides = (2, 2), padding = 'same')(output_layer)
         concatenated = concatenate([block1, upconvolved])
-        output_layer = self.decoder_block(concatenated, depth//8, dropout=0.25)
+        output_layer = self.decoder_block(concatenated, depth//8, dropout=0.25, num_comp_convs=3)
 
         return output_layer
 
