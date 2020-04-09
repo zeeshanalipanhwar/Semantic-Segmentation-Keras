@@ -17,23 +17,30 @@ class UNet_ResNet:
     
     def resnet_block(self, input_layer, num_comp_convs, filters):
         output = input_layer
-        for i in range(num_comp_convs):
+        for i in range(num_comp_convs-1):
             output = self.CompositeConv2D(output, 2, filters)
         output = Add()([output, input_layer])
         return output
     
     def encoder_block(self, input_layer, depth, dropout, num_comp_convs):
         output_layer = self.resnet_block(input_layer, num_comp_convs, depth)
-        output_layer = Add()([output_layer, input_layer])
         output_layer = MaxPooling2D(pool_size=(2, 2))(output_layer)
         output_layer = Dropout(dropout)(output_layer)
         return output_layer
 
     def encoder(self, input_layer, depth):
         block1 = Conv2D(depth, kernel_size=(7, 7), padding='same', activation="relu")(input_layer)
-        block2 = self.encoder_block(block1, depth*2, dropout=0.25, num_comp_convs=3)
-        block3 = self.encoder_block(block2, depth*4, dropout=0.25, num_comp_convs=3)
-        block4 = self.encoder_block(block3, depth*8, dropout=0.25, num_comp_convs=5)
+        block1 = MaxPooling2D(pool_size=(2, 2))(block1)
+        block1 = Dropout(rate=0.25)(block1)
+
+        block2 = Conv2D(depth*2, kernel_size=(3, 3), padding='same', activation="relu")(block1)
+        block2 = self.encoder_block(block2, depth*2, dropout=0.25, num_comp_convs=3)
+
+        block3 = Conv2D(depth*4, kernel_size=(3, 3), padding='same', activation="relu")(block2)
+        block3 = self.encoder_block(block3, depth*4, dropout=0.25, num_comp_convs=3)
+
+        block4 = Conv2D(depth*8, kernel_size=(3, 3), padding='same', activation="relu")(block3)
+        block4 = self.encoder_block(block4, depth*8, dropout=0.25, num_comp_convs=5)
         return block1, block2, block3, block4
 
     def decoder_block(self, input_layer, depth, dropout, num_comp_convs):
@@ -45,19 +52,23 @@ class UNet_ResNet:
     def decoder(self, block1, block2, block3, block4, block5, depth):
         upconvolved = Conv2DTranspose(depth, (3, 3), strides = (2, 2), padding = 'same')(block5)
         concatenated = concatenate([block4, upconvolved])
-        output_layer = self.decoder_block(concatenated, depth, dropout=0.25, num_comp_convs=2)
+        output_layer = Conv2D(depth, kernel_size=(3, 3), padding='same', activation="relu")(concatenated)
+        output_layer = self.decoder_block(output_layer, depth, dropout=0.25, num_comp_convs=2)
 
-        upconvolved = Conv2DTranspose(depth, (3, 3), strides = (2, 2), padding = 'same')(output_layer)
+        upconvolved = Conv2DTranspose(depth//2, (3, 3), strides = (2, 2), padding = 'same')(output_layer)
         concatenated = concatenate([block3, upconvolved])
-        output_layer = self.decoder_block(concatenated, depth//2, dropout=0.25, num_comp_convs=5)
+        output_layer = Conv2D(depth//2, kernel_size=(3, 3), padding='same', activation="relu")(concatenated)
+        output_layer = self.decoder_block(output_layer, depth//2, dropout=0.25, num_comp_convs=5)
 
-        upconvolved = Conv2DTranspose(depth, (3, 3), strides = (2, 2), padding = 'same')(output_layer)
+        upconvolved = Conv2DTranspose(depth//4, (3, 3), strides = (2, 2), padding = 'same')(output_layer)
         concatenated = concatenate([block2, upconvolved])
-        output_layer = self.decoder_block(concatenated, depth//4, dropout=0.25, num_comp_convs=3)
+        output_layer = Conv2D(depth//4, kernel_size=(3, 3), padding='same', activation="relu")(concatenated)
+        output_layer = self.decoder_block(output_layer, depth//4, dropout=0.25, num_comp_convs=3)
 
-        upconvolved = Conv2DTranspose(depth, (3, 3), strides = (2, 2), padding = 'same')(output_layer)
+        upconvolved = Conv2DTranspose(depth//8, (3, 3), strides = (2, 2), padding = 'same')(output_layer)
         concatenated = concatenate([block1, upconvolved])
-        output_layer = self.decoder_block(concatenated, depth//8, dropout=0.25, num_comp_convs=3)
+        output_layer = Conv2D(depth//8, kernel_size=(3, 3), padding='same', activation="relu")(concatenated)
+        output_layer = self.decoder_block(output_layer, depth//8, dropout=0.25, num_comp_convs=3)
 
         return output_layer
 
@@ -67,6 +78,7 @@ class UNet_ResNet:
         block1, block2, block3, block4 = self.encoder(input_layer, self.depth)
 
         block5 = MaxPooling2D(pool_size=(2, 2))(block4)
+        block5 = Conv2D(self.depth*16, kernel_size=(3, 3), padding='same', activation="relu")(block5)
         block5 = self.resnet_block(block5, 2, self.depth*16)
 
         decoded = self.decoder(block1, block2, block3, block4, block5, self.depth*8)
