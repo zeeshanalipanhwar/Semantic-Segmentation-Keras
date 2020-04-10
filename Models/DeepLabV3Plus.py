@@ -81,11 +81,11 @@ class DeepLabV3Plus:
             False: otherwise
         '''
         if len(a.shape) != len(b.shape): return False
-        if ((a.shape[1:] == b.shape[1:]): return True
         for i in len(a.shape):
-            if not a.shape[i] and not b.shape[i]: pass
-            else: return False
-        return True
+            if ((not a.shape[i] and not b.shape[i])      # if either both values are None / Undefined
+                or (a.shape[i] == b.shape[i])): continue # or both are the same values, the continue
+            else: return False # otherwise
+        return True # because every element of the shapes of the tensors are either None / Undefined or the same
             
     def decoder(self, output_forwd, output_layer):
         # Block one of 4 times upsampling of the output using Bilinear interpolation
