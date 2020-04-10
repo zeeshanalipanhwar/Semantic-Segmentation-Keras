@@ -100,6 +100,12 @@ F1 Score is defined as the harmonic mean of precision and recall as <img src="ht
 ## 3. DeepLabV3
 ![DeepLabV3](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/Images/DeepLabV3_Qualitative_Results.JPG)
 
+## 1. SegNet_ResNet
+![SegNet ResNet](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/Images/SegNet_ResNet_Qualitative_Results.JPG)
+
+## 2. UNet_ResNet
+![UNet ResNet](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/Images/UNet_ResNet_Qualitative_Results.JPG)
+
 # Replication Instructions
 Use the colab notebooks in the Colab Notebooks directory for training, testing, and predictions on different models.
 
@@ -107,6 +113,8 @@ Use the colab notebooks in the Colab Notebooks directory for training, testing, 
 - SegNet_basic.model: https://drive.google.com/file/d/1-_FIvsHR_7hz0qnQe4lbU9YNHMNZ0GEF/view?usp=sharing
 - UNet_basic.model: https://drive.google.com/file/d/13QR42aOatLQIN0G6bZ8z24TaW6LasEMw/view?usp=sharing
 - DeepLabV3_basic.model: https://drive.google.com/file/d/1m1G-3huYC775H9R39WCC60WKaDvW0Ntt/view?usp=sharing
+- SegNet_resnet.model : https://drive.google.com/file/d/1Vbv9GjAc1UQeWZyYwXmAhZaWRJoHKlJv/view?usp=sharing
+- UNet_resnet.model: https://drive.google.com/file/d/1Gnk6dkMyC9DMtLQK8K-v10J9aDGMeBro/view?usp=sharing
 
 # Instructions to load a pretrained model
 Either use the colab notebooks in the Colab Notebooks directory for predictions on respective models, or follow the following steps using your console.
