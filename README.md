@@ -56,21 +56,18 @@ These augmentations were applied on *10%* of the training and *20%* of the valid
 # 1. SegNet
 ## Model Diagram
 ![SegNet Architecture](https://www.researchgate.net/profile/Vijay_Badrinarayanan/publication/283471087/figure/fig1/AS:391733042008065@1470407843299/An-illustration-of-the-SegNet-architecture-There-are-no-fully-connected-layers-and-hence.png)
-## Model Summary
-Go to respective colab notebook to view the detailed model summary.
 
 # 2. UNet
 ## Model Diagram:
 ![UNet Architecture](https://vasanashwin.github.io/retrospect/images/unet.png)
-## Model Summary
-Go to respective colab notebook to view the detailed model summary.
 
 # 3. DeepLabV3
 ## Model Diagram
 ![DeepLabV3 Architecture](https://miro.medium.com/max/1590/1*R7tiLxyeHYHMXTGJIanZiA.png)
 ![DeepLabV3 Architecture](https://media.arxiv-vanity.com/render-output/2143434/x1.png)
-## Model Summary
-Go to respective colab notebook to view the detailed model summary.
+
+# Model Summaries
+Go to the colab notebooks in the Colab Notebooks directory for each model to view the detailed model summary.
 
 # Performance Measures
 
@@ -91,7 +88,7 @@ F1 Score is defined as the harmonic mean of precision and recall as <img src="ht
 | DeepLabV3_ResNet | - | - | - | - |
 
 # Qualitative Results
-Following is the test tissue image along its ground truth segmentation mask that I show the qualitative results of my models on.
+Following is the test tissue image with its ground truth segmentation mask that I show the qualitative results of my models on.
 ![Test Image For Qualitative Results](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/Images/Test_Image_For_Qualitative_Results.JPG)
 
 ## 1. SegNet
@@ -130,15 +127,17 @@ Either use the colab notebooks in the Colab Notebooks directory for predictions 
 
 ```python
 # import all the models and their respective configuration files
-from Semantic_Segmentation_Keras.Models import SegNet, UNet, DeepLabV3
+from Semantic_Segmentation_Keras.Models import SegNet, UNet, DeepLabV3, SegNet_ResNet, UNet_ResNet#, DeepLabV3Plus
 from Semantic_Segmentation_Keras.Configs import SegNet_Configs, UNet_Configs, DeepLabV3_Configs
 ```
 
 ```python
 # create a model of your choice among the above availabe models
 model = SegNet.SegNet(depth=SegNet_Configs.DEPTH).SegNet(input_shape=(None,None, 3))
-#model = UNet.SegNet(depth=UNet_Configs.DEPTH).UNet(input_shape=(None, None, 3))
+#model = UNet.UNet(depth=UNet_Configs.DEPTH).UNet(input_shape=(None, None, 3))
 #model = DeepLabV3.DeepLabV3(depth=DeepLabV3_Configs.DEPTH).DeepLabV3(input_shape=(None, None, 3))
+#model = SegNet_ResNet.SegNet_ResNet(depth=SegNet_Configs.DEPTH).SegNet_ResNet(input_shape=(None,None, 3))
+#model = UNet_ResNet.UNet_ResNet(depth=UNet_Configs.DEPTH).UNet_ResNet(input_shape=(None, None, 3))
 ```
 
 ```python
@@ -149,9 +148,11 @@ model.summary()
 ## 3. Load the respective pretrained-model weights
 
 ```python
-model.load_weights("Model/segnet_basic.model")
-#model.load_weights("Model/unet_basic.model")
-#model.load_weights("Model/deeplabv3_basic.model")
+model.load_weights("Model/SegNet_basic.model")
+#model.load_weights("Model/UNet_basic.model")
+#model.load_weights("Model/DeepLabV3_basic.model")
+#model.load_weights("Model/SegNet_resnet.model")
+#model.load_weights("Model/UNet_resnet.model")
 ```
 
 ## 4. Make prediction for a sample on the network
