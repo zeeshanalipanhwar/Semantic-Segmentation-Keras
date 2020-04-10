@@ -91,6 +91,9 @@ F1 Score is defined as the harmonic mean of precision and recall as <img src="ht
 | DeepLabV3_ResNet | - | - | - | - |
 
 # Qualitative Results
+Following is the test tissue image along its ground truth segmentation mask that I show the qualitative results of my models on.
+![Test Image For Qualitative Results](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/Images/Test_Image_For_Qualitative_Results.JPG)
+
 ## 1. SegNet
 ![SegNet](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/Images/SegNet_Qualitative_Results.JPG)
 
