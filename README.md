@@ -53,18 +53,25 @@ These augmentations were applied on *10%* of the training and *20%* of the valid
     └── train.py          # functions to train a model with simple or augmented data
 
 
-# 1. SegNet
-## Model Diagram
+# Model Diagrams
+## 1. SegNet
 ![SegNet Architecture](https://www.researchgate.net/profile/Vijay_Badrinarayanan/publication/283471087/figure/fig1/AS:391733042008065@1470407843299/An-illustration-of-the-SegNet-architecture-There-are-no-fully-connected-layers-and-hence.png)
 
-# 2. UNet
-## Model Diagram:
+## 2. UNet
 ![UNet Architecture](https://vasanashwin.github.io/retrospect/images/unet.png)
 
-# 3. DeepLabV3
-## Model Diagram
+## 3. DeepLabV3
 ![DeepLabV3 Architecture](https://miro.medium.com/max/1590/1*R7tiLxyeHYHMXTGJIanZiA.png)
 ![DeepLabV3 Architecture](https://media.arxiv-vanity.com/render-output/2143434/x1.png)
+
+## 4. SegNet_ResNet
+![SegNet_ResNet](https://)
+
+## 5. UNet_ResNet
+![UNet_ResNet](https://)
+
+## 6. DeepLabV3Plus
+![DeepLabV3Plus](https://miro.medium.com/max/1037/1*2mYfKnsX1IqCCSItxpXSGA.png)
 
 # Model Summaries
 Go to the colab notebooks in the Colab Notebooks directory for each model to view the detailed model summary.
