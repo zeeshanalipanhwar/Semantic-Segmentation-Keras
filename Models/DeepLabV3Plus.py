@@ -72,6 +72,21 @@ class DeepLabV3Plus:
         
         return output_forwd, output_layer
     
+    def equal(a, b):
+        '''
+        Inputs:
+            a, b: n, m dimentional tensors where n, m >= 1
+        Returns:
+            True: when the tensors a and b are of the same shape
+            False: otherwise
+        '''
+        if len(a.shape) != len(b.shape): return False
+        if ((a.shape[1:] == b.shape[1:]): return True
+        for i in len(a.shape):
+            if not a.shape[i] and not b.shape[i]: pass
+            else: return False
+        return True
+            
     def decoder(self, output_forwd, output_layer):
         # Block one of 4 times upsampling of the output using Bilinear interpolation
         output_layer_upsampled = UpSampling2D(size=(4, 4), data_format=None, interpolation='bilinear')(output_layer)
@@ -80,7 +95,7 @@ class DeepLabV3Plus:
         output_forwd_d_reduced = Conv2D(1, (1, 1), activation="relu", padding="same")(output_forwd)
         
         # Make sure the shape of both is the same
-        if output_forwd_d_reduced.shape[1:]==output_layer_upsampled.shape[1:]: pass
+        if self.equal(output_forwd_d_reduced, output_layer_upsampled): pass
         else: raise ValueError("Shapes of 'output_forwd_d_reduced' and 'output_layer_upsampled' are expected to be same, but got {} and {}!".format(output_forwd_d_reduced.shape, output_layer_upsampled.shape))
 
         concatenated = concatenate([output_forwd_d_reduced, output_layer_upsampled])
