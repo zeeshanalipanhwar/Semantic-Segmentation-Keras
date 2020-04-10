@@ -83,8 +83,8 @@ class DeepLabV3Plus:
         if len(a.shape) != len(b.shape): return False
         else: # shape tupes for both the tensor is the same
             for i in range(len(a.shape)):
-                if ((not a.shape[i] and not b.shape[i])      # if either both values are None / Undefined
-                    or (a.shape[i] == b.shape[i])): continue # or both are the same values, the continue
+                if ((not a.shape[i].value and not b.shape[i].value) # if either both values are None / Undefined
+                    or (a.shape[i] == b.shape[i])): continue        # or both are the same values, then continue
                 else: return False # otherwise
             return True # because every element of the shapes of the tensors are either None / Undefined or the same
             
