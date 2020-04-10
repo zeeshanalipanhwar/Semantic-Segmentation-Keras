@@ -107,11 +107,14 @@ Following is the test tissue image with its ground truth segmentation mask that 
 ## 3. DeepLabV3
 ![DeepLabV3](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/Images/DeepLabV3_Qualitative_Results.JPG)
 
-## 1. SegNet_ResNet
+## 4. SegNet_ResNet
 ![SegNet ResNet](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/Images/SegNet_ResNet_Qualitative_Results.JPG)
 
-## 2. UNet_ResNet
+## 5. UNet_ResNet
 ![UNet ResNet](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/Images/UNet_ResNet_Qualitative_Results.JPG)
+
+## 6. DeepLabV3Plus
+![DeepLabV3Plus](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/Images/DeepLabV3Plus_Qualitative_Results.JPG)
 
 # Replication Instructions
 Use the colab notebooks in the Colab Notebooks directory for training, testing, and predictions on different models.
@@ -122,6 +125,7 @@ Use the colab notebooks in the Colab Notebooks directory for training, testing, 
 - DeepLabV3_basic.model: https://drive.google.com/file/d/1m1G-3huYC775H9R39WCC60WKaDvW0Ntt/view?usp=sharing
 - SegNet_resnet.model : https://drive.google.com/file/d/1Vbv9GjAc1UQeWZyYwXmAhZaWRJoHKlJv/view?usp=sharing
 - UNet_resnet.model: https://drive.google.com/file/d/1Gnk6dkMyC9DMtLQK8K-v10J9aDGMeBro/view?usp=sharing
+- DeepLabV3Plus.model: https://drive.google.com/file/d/1OlBuzF62we5NKqrnOUYWRZLntz3zRr3D/view?usp=sharing
 
 # Instructions to load a pretrained model
 Either use the colab notebooks in the Colab Notebooks directory for predictions on respective models, or follow the following steps using your console.
@@ -134,7 +138,7 @@ Either use the colab notebooks in the Colab Notebooks directory for predictions 
 
 ```python
 # import all the models and their respective configuration files
-from Semantic_Segmentation_Keras.Models import SegNet, UNet, DeepLabV3, SegNet_ResNet, UNet_ResNet#, DeepLabV3Plus
+from Semantic_Segmentation_Keras.Models import SegNet, UNet, DeepLabV3, SegNet_ResNet, UNet_ResNet, DeepLabV3Plus
 from Semantic_Segmentation_Keras.Configs import SegNet_Configs, UNet_Configs, DeepLabV3_Configs
 ```
 
