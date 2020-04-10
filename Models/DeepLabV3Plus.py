@@ -28,10 +28,7 @@ class DeepLabV3Plus:
 
         return conv11_layer, atrous_conv1, atrous_conv2, atrous_conv3
 
-    def DeepLabV3Plus(self, input_shape, dropout = 0.25):
-
-        input_layer = Input(shape=input_shape)
-
+    def encoder(self, input_shape, dropout = 0.25):
         # Block one that reduces the input shape by 2
         output_layer = Conv2D(self.depth, (3, 3), activation='relu', padding="same")(input_layer)
         output_layer = BatchNormalization()(output_layer)
@@ -47,6 +44,7 @@ class DeepLabV3Plus:
         output_layer = BatchNormalization()(output_layer)
         output_layer = MaxPooling2D(pool_size=(2, 2))(output_layer)
         output_layer = Dropout(dropout)(output_layer)
+
         output_forwd = output_layer
         
         # Block three that reduces the input shape by 8
@@ -72,10 +70,33 @@ class DeepLabV3Plus:
         concatenated = concatenate([conv11_layer, atrous_conv1, atrous_conv2, atrous_conv3, maxpooled_in])        
         output_layer = Conv2D(1, (1, 1), activation="relu", padding="same")(concatenated)
         
-        # Block seven of 8 times upsampling of the output using Bilinear interpolation
-        output_layer = UpSampling2D(size=(8, 8), data_format=None, interpolation='bilinear')(output_layer)
+        return output_forwd, output_layer
+    
+    def decoder(self, output_forwd, output_layer):
+        # Block one of 4 times upsampling of the output using Bilinear interpolation
+        output_layer_upsampled = UpSampling2D(size=(4, 4), data_format=None, interpolation='bilinear')(output_layer)
+    
+        # Block two of reducing depth of the output of the second block to half to equate it to that of the output of encoder block five
+        assert(output_layer.shape[0]//2==self.depth*8)
+        output_forwd_d_reduced = Conv2D(output_layer.shape[0]//2, (1, 1), activation="relu", padding="same")(output_forwd)
         
-        output_layer = Activation("sigmoid")(output_layer)
+        concatinated = concatinate()([output_forwd_d_reduced, output_layer_upsampled])
+        decoded_out = Conv2D(1, (3, 3), activation="relu", padding="same")(concatenated)
+        
+        # Block three of 4 times upsampling of the above decoded output using Bilinear interpolation
+        decoded_out = UpSampling2D(size=(4, 4), data_format=None, interpolation='bilinear')(decoded_out)
+        
+        return decoded_out
+        
+    def DeepLabV3Plus(self, input_shape, dropout = 0.25):
+
+        input_layer = Input(shape=input_shape)
+        
+        output_forwd, output_layer = self.encoder(input_layer, dropout)
+
+        decoded_out = decoder(output_forwd, output_layer)
+        
+        output_layer = Activation("sigmoid")(decoded_out)
         
         # Create the model using the input layer and the final output layer
         model = Model(input_layer, output_layer)
