@@ -72,7 +72,7 @@ class DeepLabV3Plus:
         
         return output_forwd, output_layer
     
-    def equal(a, b):
+    def equal(self, a, b):
         '''
         Inputs:
             a, b: n, m dimentional tensors where n, m >= 1
