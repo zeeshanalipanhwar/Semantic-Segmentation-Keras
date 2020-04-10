@@ -149,6 +149,7 @@ model = SegNet.SegNet(depth=SegNet_Configs.DEPTH).SegNet(input_shape=(None,None,
 #model = DeepLabV3.DeepLabV3(depth=DeepLabV3_Configs.DEPTH).DeepLabV3(input_shape=(None, None, 3))
 #model = SegNet_ResNet.SegNet_ResNet(depth=SegNet_Configs.DEPTH).SegNet_ResNet(input_shape=(None,None, 3))
 #model = UNet_ResNet.UNet_ResNet(depth=UNet_Configs.DEPTH).UNet_ResNet(input_shape=(None, None, 3))
+#model = DeepLabV3Plus.DeepLabV3Plus(depth=DeepLabV3_Configs.DEPTH).DeepLabV3Plus(input_shape=(None, None, 3))
 ```
 
 ```python
@@ -164,6 +165,7 @@ model.load_weights("Model/SegNet_basic.model")
 #model.load_weights("Model/DeepLabV3_basic.model")
 #model.load_weights("Model/SegNet_resnet.model")
 #model.load_weights("Model/UNet_resnet.model")
+#model.load_weights("Model/DeepLabV3Plus.model")
 ```
 
 ## 4. Make prediction for a sample on the network
