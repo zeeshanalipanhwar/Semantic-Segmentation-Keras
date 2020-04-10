@@ -64,13 +64,7 @@ These augmentations were applied on *10%* of the training and *20%* of the valid
 ![DeepLabV3 Architecture](https://miro.medium.com/max/1590/1*R7tiLxyeHYHMXTGJIanZiA.png)
 ![DeepLabV3 Architecture](https://media.arxiv-vanity.com/render-output/2143434/x1.png)
 
-## 4. SegNet_ResNet
-![SegNet_ResNet](https://)
-
-## 5. UNet_ResNet
-![UNet_ResNet](https://)
-
-## 6. DeepLabV3Plus
+## 4. DeepLabV3Plus
 ![DeepLabV3Plus](https://miro.medium.com/max/1037/1*2mYfKnsX1IqCCSItxpXSGA.png)
 
 # Model Summaries
@@ -120,12 +114,12 @@ Following is the test tissue image with its ground truth segmentation mask that 
 Use the colab notebooks in the Colab Notebooks directory for training, testing, and predictions on different models.
 
 # Pretrained Models
-- SegNet_basic.model: https://drive.google.com/file/d/1-_FIvsHR_7hz0qnQe4lbU9YNHMNZ0GEF/view?usp=sharing
-- UNet_basic.model: https://drive.google.com/file/d/13QR42aOatLQIN0G6bZ8z24TaW6LasEMw/view?usp=sharing
-- DeepLabV3_basic.model: https://drive.google.com/file/d/1m1G-3huYC775H9R39WCC60WKaDvW0Ntt/view?usp=sharing
-- SegNet_resnet.model : https://drive.google.com/file/d/1Vbv9GjAc1UQeWZyYwXmAhZaWRJoHKlJv/view?usp=sharing
-- UNet_resnet.model: https://drive.google.com/file/d/1Gnk6dkMyC9DMtLQK8K-v10J9aDGMeBro/view?usp=sharing
-- DeepLabV3Plus.model: https://drive.google.com/file/d/1OlBuzF62we5NKqrnOUYWRZLntz3zRr3D/view?usp=sharing
+- [SegNet_basic.model](https://drive.google.com/file/d/1-_FIvsHR_7hz0qnQe4lbU9YNHMNZ0GEF/view?usp=sharing)
+- [UNet_basic.model](https://drive.google.com/file/d/13QR42aOatLQIN0G6bZ8z24TaW6LasEMw/view?usp=sharing)
+- [DeepLabV3_basic.model](https://drive.google.com/file/d/1m1G-3huYC775H9R39WCC60WKaDvW0Ntt/view?usp=sharing)
+- [SegNet_resnet.model](https://drive.google.com/file/d/1Vbv9GjAc1UQeWZyYwXmAhZaWRJoHKlJv/view?usp=sharing)
+- [UNet_resnet.model](https://drive.google.com/file/d/1Gnk6dkMyC9DMtLQK8K-v10J9aDGMeBro/view?usp=sharing)
+- [DeepLabV3Plus.model](https://drive.google.com/file/d/1OlBuzF62we5NKqrnOUYWRZLntz3zRr3D/view?usp=sharing)
 
 # Instructions to load a pretrained model
 Either use the colab notebooks in the Colab Notebooks directory for predictions on respective models, or follow the following steps using your console.
