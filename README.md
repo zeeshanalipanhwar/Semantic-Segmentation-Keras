@@ -92,7 +92,7 @@ F1 Score is defined as the harmonic mean of precision and recall as <img src="ht
 | DeepLabV3 | 0.8606 | 0.61 | 0.80 | 0.6943 |
 | SegNet_ResNet | 0.9042 | 0.74 | 0.81 | 0.7686 |
 | UNet_ResNet | **0.9154** | 0.76 | 0.83 | **0.7942** |
-| DeepLabV3_ResNet | - | - | - | - |
+| DeepLabV3Plus | 0.8988 | 0.72 | 0.80 | 0.7576 |
 
 # Qualitative Results
 Following is the test tissue image with its ground truth segmentation mask that I show the qualitative results of my models on.
