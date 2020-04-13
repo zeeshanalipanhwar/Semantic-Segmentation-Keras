@@ -40,17 +40,20 @@ These augmentations were applied on *10%* of the training and *20%* of the valid
 # Project Structure
 
     .
-    ├── Colab Notebooks   # interactive notebooks containing sets of steps followed for training, testing, and predictions
-    ├── Configs           # configuration files for respective models
-    ├── Images            # screenshots or images needed for better presentation of README.md file
-    ├── Models            # complete implementations of models of the project
-        ├── DeepLabV3.py  # a complete implementation of a DeepLabV3 standard model
-        ├── SegNet.py     # a complete implementation of a SegNet standard model
-        └── UNet.py       # a complete implementation of a UNet standard model
-    ├── Training Plots    # training and validation performance graphs for loss, accuracy, and f1 scores
-    ├── Utils             # files that include custom functionalities needed for this project
-    ├── README.md         # a complete overview of this directory
-    └── train.py          # functions to train a model with simple or augmented data
+    ├── Colab Notebooks       # Interactive notebooks containing the steps followed for training, testing, and predictions
+    ├── Configs               # Configuration files for respective models
+    ├── Images                # Screenshots or images needed for better presentation of README.md file
+    ├── Models                # Complete implementations of models of the project
+        ├── DeepLabV3.py      # DeepLabV3 standard model
+        ├── DeepLabV3Plus.py  # DeepLabV3+ standard model
+        ├── SegNet.py         # SegNet standard model
+        ├── SegNet_ResNet.py  # SegNet model with ResNet backbones
+        └── UNet.py           # UNet standard model
+        └── UNet_ResNet.py    # UNet model with ResNet backbones
+    ├── Training Plots        # Training and validation performance graphs for loss, accuracy, and f1 scores
+    ├── Utils                 # Files that include custom functionalities needed for this project
+    ├── README.md             # A complete overview of this directory
+    └── train.py              # Functions to train a model with simple or augmented data
 
 
 # Model Diagrams
