@@ -157,12 +157,12 @@ model.summary()
 ## 3. Load the respective pretrained-model weights
 
 ```python
-model.load_weights("Model/SegNet_basic.model")
-#model.load_weights("Model/UNet_basic.model")
-#model.load_weights("Model/DeepLabV3_basic.model")
-#model.load_weights("Model/SegNet_resnet.model")
-#model.load_weights("Model/UNet_resnet.model")
-#model.load_weights("Model/DeepLabV3Plus.model")
+model.load_weights("SegNet_basic.model")
+#model.load_weights("UNet_basic.model")
+#model.load_weights("DeepLabV3_basic.model")
+#model.load_weights("SegNet_resnet.model")
+#model.load_weights("UNet_resnet.model")
+#model.load_weights("DeepLabV3Plus.model")
 ```
 
 ## 4. Make prediction for a sample on the network
