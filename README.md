@@ -128,8 +128,8 @@ Use the colab notebooks in the Colab Notebooks directory for training, testing, 
 Either use the colab notebooks in the Colab Notebooks directory for predictions on respective models, or follow the following steps using your console.
 ## 1. Clone this repository to your current directory
 
-    !git clone https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras
-    !mv Semantic-Segmentation-Keras Semantic_Segmentation_Keras
+    git clone https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras
+    mv Semantic-Segmentation-Keras Semantic_Segmentation_Keras
 
 ## 2. Create a model
 
