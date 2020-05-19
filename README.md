@@ -44,12 +44,12 @@ These augmentations were applied on *10%* of the training and *20%* of the valid
     ├── Configs               # Configuration files for respective models
     ├── Images                # Screenshots or images needed for better presentation of README.md file
     ├── Models                # Complete implementations of models of the project
-        ├── DeepLabV3.py          # DeepLabV3 standard model
-        ├── DeepLabV3Plus.py      # DeepLabV3+ standard model
-        ├── SegNet.py             # SegNet standard model
-        ├── SegNet_ResNet.py      # SegNet model with ResNet backbones
-        └── UNet.py               # UNet standard model
-        └── UNet_ResNet.py        # UNet model with ResNet backbones
+    │   ├── DeepLabV3.py          # DeepLabV3 standard model
+    │   ├── DeepLabV3Plus.py      # DeepLabV3+ standard model
+    │   ├── SegNet.py             # SegNet standard model
+    │   ├── SegNet_ResNet.py      # SegNet model with ResNet backbones
+    │   └── UNet.py               # UNet standard model
+    │   └── UNet_ResNet.py        # UNet model with ResNet backbones
     ├── Training Plots        # Training and validation performance graphs for loss, accuracy, and f1 scores
     ├── Utils                 # Files that include custom functionalities needed for this project
     ├── README.md             # A complete overview of this directory
