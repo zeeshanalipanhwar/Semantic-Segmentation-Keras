@@ -1,7 +1,7 @@
 # Semantic Segmentation of Nuclei in Digital Histology Images
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/LICENSE)
 
-This project includes SegNet, UNet, and DeepLabV3 for Semantic Segmentation of nuclei in digital histology images using Keras.
+This project includes SegNet, UNet, and DeepLabV3 for Semantic Segmentation of nuclei in digital histology images.
 
 # Semantic Segmentation
 "Semantic segmentation, or image segmentation, is the task of clustering parts of an image together which belong to the same object class. It is a form of pixel-level prediction because each pixel in an image is classified according to a category. Some example benchmarks for this task are Cityscapes, PASCAL VOC and ADE20K. Models are usually evaluated with the Mean Intersection-Over-Union (Mean IoU) and Pixel Accuracy metrics." -- [PapersWithCode](https://paperswithcode.com/task/semantic-segmentation).
