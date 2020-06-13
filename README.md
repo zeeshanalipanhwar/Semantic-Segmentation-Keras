@@ -1,5 +1,6 @@
 # Semantic Segmentation of Nuclei in Digital Histology Images
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/LICENSE)
+
 This project includes SegNet, UNet, and DeepLabV3 for Semantic Segmentation of nuclei in digital histology images using Keras.
 
 # Semantic Segmentation
