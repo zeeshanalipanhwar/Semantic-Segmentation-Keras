@@ -42,7 +42,7 @@ These augmentations were applied on *10%* of the training and *20%* of the valid
 # Project Structure
 
     .
-    ├── Colab Notebooks       # Interactive notebooks containing the steps followed for training, testing, and predictions
+    ├── Colab Notebooks       # Interactive notebooks for training, testing, and predictions
     ├── Configs               # Configuration files for respective models
     ├── Images                # Screenshots or images needed for better presentation of README.md file
     ├── Models                # Complete implementations of models of the project
