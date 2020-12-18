@@ -7,7 +7,7 @@ This project includes SegNet, UNet, and DeepLabV3 for Semantic Segmentation of n
 "Semantic segmentation, or image segmentation, is the task of clustering parts of an image together which belong to the same object class. It is a form of pixel-level prediction because each pixel in an image is classified according to a category. Some example benchmarks for this task are Cityscapes, PASCAL VOC and ADE20K. Models are usually evaluated with the Mean Intersection-Over-Union (Mean IoU) and Pixel Accuracy metrics." -- [PapersWithCode](https://paperswithcode.com/task/semantic-segmentation).
 
 # Dataset
-**MoNuSeg dataset** (available [here](https://monuseg.grand-challenge.org/Data/)) contains multi organ tissue images with the ground truth segmentation masks for nucli. The dataset can also be downloaded from [this](https://drive.google.com/drive/folders/1hnHjxFb52BdhxkcV_N7MdWLdagzXHzmq?usp=sharing) Google Drive link.
+**MoNuSeg dataset** (available [here](https://monuseg.grand-challenge.org/Data/)) contains multi organ tissue images with the ground truth segmentation masks for nuclei. The dataset can also be downloaded from [this](https://drive.google.com/drive/folders/1hnHjxFb52BdhxkcV_N7MdWLdagzXHzmq?usp=sharing) Google Drive link.
 
 Following is a sample training Tissue image with its correcsponding ground truth segmentation mask.
 ![Train0](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/Images/Train0.JPG)
