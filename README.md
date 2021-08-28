@@ -1,4 +1,4 @@
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/zeeshanalipanhwar/Semantic-Segmentation-Keras/blob/master/LICENSE)
 
 # Semantic Segmentation of Nuclei in Digital Histology Images
 This project includes SegNet, UNet, and DeepLabV3 for Semantic Segmentation of nuclei in digital histology images.
@@ -10,7 +10,7 @@ This project includes SegNet, UNet, and DeepLabV3 for Semantic Segmentation of n
 **MoNuSeg dataset** (available [here](https://monuseg.grand-challenge.org/Data/)) contains multi organ tissue images with the ground truth segmentation masks for nuclei. The dataset can also be downloaded from [this](https://drive.google.com/drive/folders/1hnHjxFb52BdhxkcV_N7MdWLdagzXHzmq?usp=sharing) Google Drive link.
 
 Following is a sample training Tissue image with its correcsponding ground truth segmentation mask.
-![Train0](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/Images/Train0.JPG)
+![Train0](https://github.com/zeeshanalipanhwar/Semantic-Segmentation-Keras/blob/master/Images/Train0.JPG)
 
 The dataset contains *30* training, *14* testing samples.
 
@@ -95,25 +95,25 @@ F1 Score is defined as the harmonic mean of precision and recall as <img src="ht
 
 # Qualitative Results
 Following is the test tissue image with its ground truth segmentation mask that I show the qualitative results of my models on.
-![Test Image For Qualitative Results](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/Images/Test_Image_For_Qualitative_Results.JPG)
+![Test Image For Qualitative Results](https://github.com/zeeshanalipanhwar/Semantic-Segmentation-Keras/blob/master/Images/Test_Image_For_Qualitative_Results.JPG)
 
 ## 1. SegNet
-![SegNet](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/Images/SegNet_Qualitative_Results.JPG)
+![SegNet](https://github.com/zeeshanalipanhwar/Semantic-Segmentation-Keras/blob/master/Images/SegNet_Qualitative_Results.JPG)
 
 ## 2. UNet
-![UNet](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/Images/UNet_Qualitative_Results.JPG)
+![UNet](https://github.com/zeeshanalipanhwar/Semantic-Segmentation-Keras/blob/master/Images/UNet_Qualitative_Results.JPG)
 
 ## 3. DeepLabV3
-![DeepLabV3](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/Images/DeepLabV3_Qualitative_Results.JPG)
+![DeepLabV3](https://github.com/zeeshanalipanhwar/Semantic-Segmentation-Keras/blob/master/Images/DeepLabV3_Qualitative_Results.JPG)
 
 ## 4. SegNet_ResNet
-![SegNet ResNet](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/Images/SegNet_ResNet_Qualitative_Results.JPG)
+![SegNet ResNet](https://github.com/zeeshanalipanhwar/Semantic-Segmentation-Keras/blob/master/Images/SegNet_ResNet_Qualitative_Results.JPG)
 
 ## 5. UNet_ResNet
-![UNet ResNet](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/Images/UNet_ResNet_Qualitative_Results.JPG)
+![UNet ResNet](https://github.com/zeeshanalipanhwar/Semantic-Segmentation-Keras/blob/master/Images/UNet_ResNet_Qualitative_Results.JPG)
 
 ## 6. DeepLabV3Plus
-![DeepLabV3Plus](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/Images/DeepLabV3Plus_Qualitative_Results.JPG)
+![DeepLabV3Plus](https://github.com/zeeshanalipanhwar/Semantic-Segmentation-Keras/blob/master/Images/DeepLabV3Plus_Qualitative_Results.JPG)
 
 # Replication Instructions
 Use the colab notebooks in the Colab Notebooks directory for training, testing, and predictions on different models.
@@ -130,7 +130,7 @@ Use the colab notebooks in the Colab Notebooks directory for training, testing, 
 Either use the colab notebooks in the Colab Notebooks directory for predictions on respective models, or follow the following steps using your console.
 ## 1. Clone this repository to your current directory
 
-    git clone https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras
+    git clone https://github.com/zeeshanalipanhwar/Semantic-Segmentation-Keras
     mv Semantic-Segmentation-Keras Semantic_Segmentation_Keras
 
 ## 2. Create a model
@@ -224,15 +224,15 @@ display.display_masked(sample_image[0], prediction[0], "Tissue Image", "Predicte
 ```
 
 ## License
-This project is licensed under the terms of the [MIT License](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/LICENSE).
+This project is licensed under the terms of the [MIT License](https://github.com/zeeshanalipanhwar/Semantic-Segmentation-Keras/blob/master/LICENSE).
 
 ## Acknowledgements
-The [./Utils/custom_layers.py](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/Utils/custom_layers.py) contains updated classes from [ykamikawa/tf-keras-SegNet/layers.py](https://github.com/ykamikawa/tf-keras-SegNet/blob/master/layers.py) file.
+The [./Utils/custom_layers.py](https://github.com/zeeshanalipanhwar/Semantic-Segmentation-Keras/blob/master/Utils/custom_layers.py) contains updated classes from [ykamikawa/tf-keras-SegNet/layers.py](https://github.com/ykamikawa/tf-keras-SegNet/blob/master/layers.py) file.
 
 This project structure followed guidlines from [DongjunLee/hb-base](https://github.com/DongjunLee/hb-base) repository.
 
-The [./.github/CONTRIBUTING.md](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/.github/CONTRIBUTING.md) was adapted from a basic template for [contributing guidelines](https://gist.github.com/briandk/3d2e8b3ec8daf5a27a62).
+The [./.github/CONTRIBUTING.md](https://github.com/zeeshanalipanhwar/Semantic-Segmentation-Keras/blob/master/.github/CONTRIBUTING.md) was adapted from a basic template for [contributing guidelines](https://gist.github.com/briandk/3d2e8b3ec8daf5a27a62).
 
-The [./.github/PULL_REQUEST_TEMPLATE.md](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/.github/PULL_REQUEST_TEMPLATE.md) is taken from [TalAter/open-source-templates](https://github.com/zeeshanalipnhwr/Semantic-Segmentation-Keras/blob/master/.github/PULL_REQUEST_TEMPLATE.md).
+The [./.github/PULL_REQUEST_TEMPLATE.md](https://github.com/zeeshanalipanhwar/Semantic-Segmentation-Keras/blob/master/.github/PULL_REQUEST_TEMPLATE.md) is taken from [TalAter/open-source-templates](https://github.com/zeeshanalipanhwar/Semantic-Segmentation-Keras/blob/master/.github/PULL_REQUEST_TEMPLATE.md).
 ## Author
-`Maintainer` [Zeeshan Ali](https://github.com/zeeshanalipnhwr) (zapt1860@gmail.com)
+`Maintainer` [Zeeshan Ali](https://github.com/zeeshanalipanhwar) (zapt1860@gmail.com)
