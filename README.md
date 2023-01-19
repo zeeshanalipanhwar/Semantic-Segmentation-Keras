@@ -83,7 +83,7 @@ It is defined as <img src="https://render.githubusercontent.com/render/math?math
 ## F1 Score (or Dice Score)
 F1 Score is defined as the harmonic mean of precision and recall as <img src="https://render.githubusercontent.com/render/math?math=F_1=\frac{2}{\frac{1}{precision}%2B\frac{1}{recall}}"> where <img src="https://render.githubusercontent.com/render/math?math=precision=\frac{TP}{TP%2BFP}"> and <img src="https://render.githubusercontent.com/render/math?math=recall=\frac{TP}{TP%2BFN}">. This is equivalent to Dice score coefficient which is defined as <img src="https://render.githubusercontent.com/render/math?math=DSC = \frac{2\times{TP}}{2\times{TP}%2BFP%2BFN}">.
 
-# Quantitatvie Results
+# Quantitative Results
 | Model | Accuracy | Precision | Recall | F1 Score (Dice Score) |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
 | SegNet | 0.9138 | **0.79** | 0.77 | 0.7799 |
